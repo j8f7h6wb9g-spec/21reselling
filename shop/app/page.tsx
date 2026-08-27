@@ -1,243 +1,673 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const categories = [
-  { name: "Hot Products", emoji: "🔥", color: "from-orange-500 to-pink-500" },
-  { name: "Shoes", emoji: "👟", color: "from-blue-500 to-cyan-400" },
-  { name: "Clothes", emoji: "👕", color: "from-purple-500 to-pink-500" },
-  { name: "Accessories", emoji: "🧢", color: "from-yellow-400 to-orange-500" },
-  { name: "Pants", emoji: "👖", color: "from-indigo-500 to-blue-500" },
-  { name: "T-Shirts", emoji: "👔", color: "from-green-400 to-cyan-500" },
-  { name: "Perfume", emoji: "🌸", color: "from-pink-400 to-purple-500" },
-];
-
-const products = [
+const socials = [
   {
-    name: "Nike Miler Trainingsanzug",
-    category: "Clothes",
-    price: "89,99 €",
-    emoji: "👕",
-    color: "from-pink-500 to-sky-300",
+    platform: "TikTok",
+    name: "@youyu21bansky",
+    url: "https://www.tiktok.com/@youyu21bansky",
+    icon: "♪",
   },
   {
-    name: "Premium Running Set",
-    category: "Hot Products",
-    price: "79,99 €",
-    emoji: "🔥",
-    color: "from-orange-500 to-red-500",
+    platform: "TikTok",
+    name: "@adam4go",
+    url: "https://www.tiktok.com/@adam4go",
+    icon: "♪",
   },
   {
-    name: "Urban Essentials T-Shirt",
-    category: "T-Shirts",
-    price: "34,99 €",
-    emoji: "👔",
-    color: "from-purple-500 to-indigo-500",
+    platform: "Instagram",
+    name: "@youssef.ddf",
+    url: "https://www.instagram.com/youssef.ddf/",
+    icon: "◎",
   },
   {
-    name: "Street Cargo Pants",
-    category: "Pants",
-    price: "59,99 €",
-    emoji: "👖",
-    color: "from-blue-600 to-indigo-600",
+    platform: "Instagram",
+    name: "@adam_marox77",
+    url: "https://www.instagram.com/adam_marox77/",
+    icon: "◎",
   },
   {
-    name: "Everyday Cap",
-    category: "Accessories",
-    price: "24,99 €",
-    emoji: "🧢",
-    color: "from-yellow-400 to-orange-500",
+    platform: "Snapchat",
+    name: "21cent",
+    url: "https://snapchat.com/t/5fd6xHYP",
+    icon: "👻",
   },
   {
-    name: "Signature Fragrance",
-    category: "Perfume",
-    price: "49,99 €",
-    emoji: "🌸",
-    color: "from-pink-500 to-purple-500",
-  },
-  {
-    name: "Street Runner",
-    category: "Shoes",
-    price: "99,99 €",
-    emoji: "👟",
-    color: "from-cyan-400 to-blue-600",
+    platform: "Snapchat",
+    name: "Adamgango",
+    url: "https://snapchat.com/t/vAWV7kT1",
+    icon: "👻",
   },
 ];
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState("Hot Products");
-  const [cart, setCart] = useState<string[]>([]);
+  const [mouseX, setMouseX] = useState(50);
+  const [mouseY, setMouseY] = useState(50);
 
-  const filteredProducts =
-    selectedCategory === "Hot Products"
-      ? products
-      : products.filter((product) => product.category === selectedCategory);
+  useEffect(() => {
+    const move = (e: MouseEvent) => {
+      setMouseX((e.clientX / window.innerWidth) * 100);
+      setMouseY((e.clientY / window.innerHeight) * 100);
+    };
 
-  function addToCart(productName: string) {
-    setCart([...cart, productName]);
-  }
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#07070a] text-white">
-      {/* Background effects */}
-      <div className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
-        <div className="absolute left-[-150px] top-[-150px] h-[400px] w-[400px] rounded-full bg-pink-500/20 blur-[120px]" />
-        <div className="absolute right-[-150px] top-[200px] h-[450px] w-[450px] rounded-full bg-blue-500/20 blur-[130px]" />
-        <div className="absolute bottom-[-200px] left-[30%] h-[400px] w-[400px] rounded-full bg-purple-500/15 blur-[130px]" />
-      </div>
+    <main
+      className="page"
+      style={
+        {
+          "--mouse-x": `${mouseX}%`,
+          "--mouse-y": `${mouseY}%`,
+        } as React.CSSProperties
+      }
+    >
+      <div className="backgroundGlow glowOne" />
+      <div className="backgroundGlow glowTwo" />
+      <div className="backgroundGlow glowThree" />
 
-      {/* Navbar */}
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-black/60 px-5 py-4 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <button
-            onClick={() => setSelectedCategory("Hot Products")}
-            className="text-xl font-black tracking-tight transition hover:scale-105"
-          >
-            <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              21RESELLING
-            </span>
-          </button>
-
-          <button className="rounded-full border border-white/10 bg-white/10 px-5 py-2 text-sm font-semibold backdrop-blur-md transition hover:scale-105 hover:bg-white/20">
-            🛒 Warenkorb ({cart.length})
-          </button>
+      <nav className="navbar">
+        <div className="logo">
+          <span>21</span> RESELLING
         </div>
+
+        <a href="#socials" className="navButton">
+          SOCIALS
+        </a>
       </nav>
 
-      {/* Hero */}
-      <section className="relative z-10 mx-auto max-w-7xl px-5 pb-14 pt-20 text-center">
-        <div className="mb-5 inline-flex animate-pulse rounded-full border border-pink-400/20 bg-pink-400/10 px-4 py-2 text-sm text-pink-300">
-          ✨ NEW DROP • 21RESELLING
+      <section className="hero">
+        <div className="heroImage">
+          <img src="/team.jpg" alt="21 Reselling Team" />
+
+          <div className="imageOverlay" />
+
+          <div className="heroBadge">
+            <span className="dot" />
+            ONLINE
+          </div>
         </div>
 
-        <h1 className="text-5xl font-black leading-tight tracking-tight sm:text-7xl">
-          Dein Style.
-          <br />
-          <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-            Dein Drop.
-          </span>
-        </h1>
+        <div className="heroText">
+          <p className="smallTitle">WELCOME TO</p>
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
-          Entdecke ausgewählte Fashion, Accessories, Shoes und mehr.
-          <br />
-          Modern. Fresh. 21RESELLING.
-        </p>
+          <h1>
+            21
+            <span>RESELLING</span>
+          </h1>
+
+          <p className="description">
+            Streetwear. Reselling. Community.
+            <br />
+            Alles an einem Ort.
+          </p>
+        </div>
       </section>
 
-      {/* Categories */}
-      <section className="relative z-10 mx-auto max-w-7xl px-5">
-        <h2 className="mb-6 text-2xl font-bold">Shop Categories</h2>
+      <section id="socials" className="socialSection">
+        <div className="sectionHeader">
+          <p>CONNECT WITH US</p>
+          <h2>Unsere Socials</h2>
+        </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-          {categories.map((category) => (
-            <button
-              key={category.name}
-              onClick={() => setSelectedCategory(category.name)}
-              className={`group relative overflow-hidden rounded-2xl border p-4 text-left transition duration-300 hover:-translate-y-1 hover:scale-[1.02] ${
-                selectedCategory === category.name
-                  ? "border-white/40 bg-white/15"
-                  : "border-white/10 bg-white/[0.04] hover:border-white/20 hover:bg-white/[0.08]"
-              }`}
+        <div className="socialGrid">
+          {socials.map((social, index) => (
+            <a
+              key={index}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="socialCard"
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 blur-2xl transition group-hover:opacity-20`}
-              />
+              <div className="socialIcon">{social.icon}</div>
 
-              <div className="relative">
-                <div className="mb-3 text-3xl">{category.emoji}</div>
-                <p className="text-sm font-bold">{category.name}</p>
+              <div className="socialInfo">
+                <span>{social.platform}</span>
+                <strong>{social.name}</strong>
               </div>
-            </button>
+
+              <div className="arrow">↗</div>
+            </a>
           ))}
         </div>
       </section>
 
-      {/* Products */}
-      <section className="relative z-10 mx-auto max-w-7xl px-5 pb-20 pt-14">
-        <div className="mb-7 flex items-end justify-between">
-          <div>
-            <p className="mb-1 text-sm text-zinc-500">COLLECTION</p>
-            <h2 className="text-3xl font-black">{selectedCategory}</h2>
-          </div>
+      <section className="vintedSection">
+        <div className="vintedContent">
+          <p className="smallTitle">OUR MARKETPLACE</p>
 
-          <span className="text-sm text-zinc-500">
-            {filteredProducts.length} Produkte
-          </span>
+          <h2>
+            Checkt unseren
+            <br />
+            <span>Vinted Account.</span>
+          </h2>
+
+          <p className="vintedText">
+            Dort findet ihr alle unsere aktuellen Listings und
+            krassen Deals.
+          </p>
+
+          <a
+            href="https://www.vinted.de/member/3178578094-21restocks"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="vintedButton"
+          >
+            <span>🛍️</span>
+            <span>VINTED ACCOUNT</span>
+            <b>↗</b>
+          </a>
         </div>
 
-        {filteredProducts.length === 0 ? (
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-12 text-center">
-            <div className="text-5xl">🚀</div>
-            <h3 className="mt-4 text-xl font-bold">
-              Neue Produkte kommen bald
-            </h3>
-            <p className="mt-2 text-zinc-500">
-              Wir arbeiten gerade an dieser Kategorie.
-            </p>
+        <div className="vintedCard">
+          <div className="vintedTop">
+            <span>21</span>
+            <span>VINTED</span>
           </div>
-        ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredProducts.map((product) => (
-              <div
-                key={product.name}
-                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-md transition duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.07]"
-              >
-                <div
-                  className={`relative flex h-64 items-center justify-center bg-gradient-to-br ${product.color} overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-black/10 transition group-hover:bg-black/0" />
 
-                  <span className="relative text-8xl drop-shadow-2xl transition duration-500 group-hover:scale-125">
-                    {product.emoji}
-                  </span>
-
-                  <span className="absolute left-4 top-4 rounded-full bg-black/40 px-3 py-1 text-xs font-bold backdrop-blur-md">
-                    {product.category}
-                  </span>
-                </div>
-
-                <div className="p-5">
-                  <h3 className="text-xl font-bold">{product.name}</h3>
-
-                  <div className="mt-5 flex items-center justify-between">
-                    <span className="text-2xl font-black">
-                      {product.price}
-                    </span>
-
-                    <button
-                      onClick={() => addToCart(product.name)}
-                      className="rounded-xl bg-white px-4 py-2 text-sm font-bold text-black transition hover:scale-105 hover:bg-pink-200 active:scale-95"
-                    >
-                      Kaufen
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="vintedCircle">
+            21
           </div>
-        )}
+
+          <h3>21restocks</h3>
+          <p>Unsere aktuellen Listings</p>
+
+          <div className="fakeListings">
+            <div />
+            <div />
+            <div />
+          </div>
+        </div>
       </section>
 
-      {/* Socials */}
-      <section className="relative z-10 border-t border-white/10 px-5 py-12 text-center">
-        <p className="mb-4 text-sm text-zinc-500">FOLLOW 21RESELLING</p>
+      <footer>
+        <div className="footerLogo">
+          <span>21</span> RESELLING
+        </div>
 
-        <a
-          href="https://www.tiktok.com/@youyu21bansky"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-semibold transition duration-300 hover:-translate-y-1 hover:bg-white/10"
-        >
-          <span className="text-2xl">♪</span>
-          TikTok: @youyu21bansky
-        </a>
-      </section>
+        <p>Made with Passion.</p>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 px-5 py-8 text-center text-sm text-zinc-600">
-        © 2026 21RESELLING • Made for the next generation
+        <p className="copyright">© 2026 21 Reselling</p>
       </footer>
+
+      <style jsx>{`
+        * {
+          box-sizing: border-box;
+        }
+
+        .page {
+          min-height: 100vh;
+          overflow: hidden;
+          position: relative;
+          background:
+            radial-gradient(
+              circle at var(--mouse-x) var(--mouse-y),
+              rgba(103, 70, 255, 0.12),
+              transparent 25%
+            ),
+            linear-gradient(135deg, #08090d, #101118 45%, #08090d);
+          color: white;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .page::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          pointer-events: none;
+          opacity: 0.08;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+          z-index: 0;
+        }
+
+        .backgroundGlow {
+          position: absolute;
+          width: 420px;
+          height: 420px;
+          border-radius: 50%;
+          filter: blur(100px);
+          opacity: 0.15;
+          pointer-events: none;
+          animation: float 12s ease-in-out infinite;
+        }
+
+        .glowOne {
+          background: #704cff;
+          top: 5%;
+          left: -180px;
+        }
+
+        .glowTwo {
+          background: #00d5b5;
+          top: 45%;
+          right: -180px;
+          animation-delay: -4s;
+        }
+
+        .glowThree {
+          background: #774cff;
+          bottom: -180px;
+          left: 35%;
+          animation-delay: -8s;
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0) scale(1);
+          }
+
+          50% {
+            transform: translateY(-45px) scale(1.08);
+          }
+        }
+
+        .navbar {
+          position: relative;
+          z-index: 5;
+          max-width: 1150px;
+          margin: auto;
+          padding: 28px 25px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .logo,
+        .footerLogo {
+          font-weight: 900;
+          letter-spacing: -1px;
+        }
+
+        .logo span,
+        .footerLogo span {
+          font-size: 25px;
+        }
+
+        .navButton {
+          text-decoration: none;
+          color: white;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          padding: 12px 18px;
+          border-radius: 100px;
+          font-size: 11px;
+          letter-spacing: 2px;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(15px);
+          transition: 0.3s;
+        }
+
+        .navButton:hover {
+          background: white;
+          color: black;
+          transform: translateY(-2px);
+        }
+
+        .hero {
+          position: relative;
+          z-index: 2;
+          max-width: 1150px;
+          margin: 40px auto 0;
+          padding: 0 25px 90px;
+          display: grid;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 55px;
+          align-items: center;
+        }
+
+        .heroImage {
+          position: relative;
+          height: 560px;
+          border-radius: 28px;
+          overflow: hidden;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .heroImage img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+        }
+
+        .imageOverlay {
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(
+              to top,
+              rgba(5, 6, 10, 0.7),
+              transparent 55%
+            );
+        }
+
+        .heroBadge {
+          position: absolute;
+          left: 22px;
+          bottom: 22px;
+          padding: 10px 15px;
+          border-radius: 100px;
+          background: rgba(0, 0, 0, 0.4);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+          font-size: 10px;
+          letter-spacing: 2px;
+        }
+
+        .dot {
+          display: inline-block;
+          width: 7px;
+          height: 7px;
+          background: #68ff9c;
+          border-radius: 50%;
+          margin-right: 8px;
+          box-shadow: 0 0 12px #68ff9c;
+        }
+
+        .smallTitle {
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 11px;
+          letter-spacing: 4px;
+          font-weight: bold;
+        }
+
+        .heroText h1 {
+          margin: 15px 0;
+          font-size: clamp(60px, 8vw, 105px);
+          line-height: 0.85;
+          letter-spacing: -7px;
+        }
+
+        .heroText h1 span {
+          display: block;
+          font-size: 0.42em;
+          letter-spacing: 7px;
+          margin-top: 18px;
+          opacity: 0.9;
+        }
+
+        .description {
+          color: rgba(255, 255, 255, 0.58);
+          line-height: 1.7;
+          font-size: 15px;
+        }
+
+        .socialSection {
+          position: relative;
+          z-index: 2;
+          max-width: 900px;
+          margin: auto;
+          padding: 80px 25px;
+        }
+
+        .sectionHeader {
+          text-align: center;
+          margin-bottom: 35px;
+        }
+
+        .sectionHeader p {
+          font-size: 10px;
+          letter-spacing: 4px;
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        .sectionHeader h2 {
+          font-size: 38px;
+          margin: 10px 0;
+          letter-spacing: -2px;
+        }
+
+        .socialGrid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 13px;
+        }
+
+        .socialCard {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          padding: 19px;
+          color: white;
+          text-decoration: none;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.045);
+          backdrop-filter: blur(20px);
+          border-radius: 18px;
+          transition: 0.35s ease;
+        }
+
+        .socialCard:hover {
+          transform: translateY(-5px);
+          background: rgba(255, 255, 255, 0.09);
+          border-color: rgba(255, 255, 255, 0.22);
+        }
+
+        .socialIcon {
+          width: 45px;
+          height: 45px;
+          border-radius: 14px;
+          display: grid;
+          place-items: center;
+          background: rgba(255, 255, 255, 0.08);
+          font-size: 20px;
+        }
+
+        .socialInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .socialInfo span {
+          font-size: 10px;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.4);
+          letter-spacing: 2px;
+        }
+
+        .socialInfo strong {
+          font-size: 14px;
+        }
+
+        .arrow {
+          margin-left: auto;
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        .vintedSection {
+          position: relative;
+          z-index: 2;
+          max-width: 1100px;
+          margin: 40px auto 100px;
+          padding: 65px;
+          border-radius: 30px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          background:
+            radial-gradient(
+              circle at 80% 30%,
+              rgba(92, 66, 255, 0.15),
+              transparent 30%
+            ),
+            rgba(255, 255, 255, 0.035);
+          backdrop-filter: blur(25px);
+          display: grid;
+          grid-template-columns: 1fr 300px;
+          gap: 50px;
+          align-items: center;
+        }
+
+        .vintedContent h2 {
+          font-size: clamp(40px, 5vw, 62px);
+          line-height: 0.95;
+          letter-spacing: -4px;
+          margin: 18px 0;
+        }
+
+        .vintedContent h2 span {
+          opacity: 0.5;
+        }
+
+        .vintedText {
+          color: rgba(255, 255, 255, 0.5);
+          max-width: 450px;
+          line-height: 1.6;
+        }
+
+        .vintedButton {
+          margin-top: 28px;
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          padding: 15px 20px;
+          border-radius: 100px;
+          background: white;
+          color: black;
+          text-decoration: none;
+          font-size: 11px;
+          font-weight: 900;
+          letter-spacing: 1px;
+          transition: 0.3s;
+        }
+
+        .vintedButton:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 15px 40px rgba(255, 255, 255, 0.15);
+        }
+
+        .vintedButton b {
+          font-size: 16px;
+        }
+
+        .vintedCard {
+          min-height: 360px;
+          border-radius: 25px;
+          padding: 22px;
+          background: linear-gradient(145deg, #1b1d25, #0d0e13);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+          text-align: center;
+          transform: rotate(2deg);
+        }
+
+        .vintedTop {
+          display: flex;
+          justify-content: space-between;
+          color: rgba(255, 255, 255, 0.45);
+          font-size: 9px;
+          letter-spacing: 2px;
+        }
+
+        .vintedCircle {
+          width: 85px;
+          height: 85px;
+          margin: 40px auto 18px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          font-size: 30px;
+          font-weight: 900;
+          background: rgba(255, 255, 255, 0.07);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .vintedCard h3 {
+          margin: 0;
+          font-size: 21px;
+        }
+
+        .vintedCard p {
+          margin: 7px 0 25px;
+          color: rgba(255, 255, 255, 0.4);
+          font-size: 12px;
+        }
+
+        .fakeListings {
+          display: flex;
+          gap: 7px;
+        }
+
+        .fakeListings div {
+          height: 70px;
+          flex: 1;
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.07);
+        }
+
+        footer {
+          position: relative;
+          z-index: 2;
+          max-width: 1100px;
+          margin: auto;
+          padding: 30px 25px 45px;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: rgba(255, 255, 255, 0.4);
+          font-size: 11px;
+        }
+
+        footer p {
+          margin: 0;
+        }
+
+        @media (max-width: 750px) {
+          .navbar {
+            padding: 22px 18px;
+          }
+
+          .hero {
+            grid-template-columns: 1fr;
+            margin-top: 20px;
+            padding: 0 18px 60px;
+            gap: 30px;
+          }
+
+          .heroImage {
+            height: 420px;
+            border-radius: 22px;
+          }
+
+          .heroText h1 {
+            font-size: 75px;
+          }
+
+          .socialSection {
+            padding: 55px 18px;
+          }
+
+          .socialGrid {
+            grid-template-columns: 1fr;
+          }
+
+          .vintedSection {
+            margin: 20px 18px 70px;
+            padding: 35px 25px;
+            grid-template-columns: 1fr;
+          }
+
+          .vintedCard {
+            max-width: 300px;
+            width: 100%;
+            margin: auto;
+          }
+
+          footer {
+            margin: 0 18px;
+            padding-left: 0;
+            padding-right: 0;
+            flex-direction: column;
+            gap: 15px;
+          }
+        }
+      `}
+      </style>
     </main>
   );
 }
