@@ -16,7 +16,7 @@ export default function Home() {
       type: "TikTok",
       username: "@youyu21bansky",
       url: "https://www.tiktok.com/@youyu21bansky",
-      logo: "𝕿",
+      logo: "/tiktok.png",
     },
     {
       type: "TikTok",
