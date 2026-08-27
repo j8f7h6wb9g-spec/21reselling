@@ -2,195 +2,340 @@
 
 import { useEffect, useState } from "react";
 
-const socials = [
-  {
-    platform: "TikTok",
-    name: "@youyu21bansky",
-    url: "https://www.tiktok.com/@youyu21bansky",
-    icon: "♪",
-  },
-  {
-    platform: "TikTok",
-    name: "@adam4go",
-    url: "https://www.tiktok.com/@adam4go",
-    icon: "♪",
-  },
-  {
-    platform: "Instagram",
-    name: "@youssef.ddf",
-    url: "https://www.instagram.com/youssef.ddf/",
-    icon: "◎",
-  },
-  {
-    platform: "Instagram",
-    name: "@adam_marox77",
-    url: "https://www.instagram.com/adam_marox77/",
-    icon: "◎",
-  },
-  {
-    platform: "Snapchat",
-    name: "21cent",
-    url: "https://snapchat.com/t/5fd6xHYP",
-    icon: "👻",
-  },
-  {
-    platform: "Snapchat",
-    name: "Adamgango",
-    url: "https://snapchat.com/t/vAWV7kT1",
-    icon: "👻",
-  },
-];
-
 export default function Home() {
-  const [mouseX, setMouseX] = useState(50);
-  const [mouseY, setMouseY] = useState(50);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const move = (e: MouseEvent) => {
-      setMouseX((e.clientX / window.innerWidth) * 100);
-      setMouseY((e.clientY / window.innerHeight) * 100);
-    };
-
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <main
-      className="page"
-      style={
-        {
-          "--mouse-x": `${mouseX}%`,
-          "--mouse-y": `${mouseY}%`,
-        } as React.CSSProperties
-      }
-    >
-      <div className="backgroundGlow glowOne" />
-      <div className="backgroundGlow glowTwo" />
-      <div className="backgroundGlow glowThree" />
+  const socials = [
+    {
+      type: "TikTok",
+      username: "@youyu21bansky",
+      url: "https://www.tiktok.com/@youyu21bansky",
+      logo: "𝕿",
+    },
+    {
+      type: "TikTok",
+      username: "@adam4go",
+      url: "https://www.tiktok.com/@adam4go",
+      logo: "𝕿",
+    },
+    {
+      type: "Instagram",
+      username: "@youssef.ddf",
+      url: "https://www.instagram.com/youssef.ddf/",
+      logo: "◎",
+    },
+    {
+      type: "Instagram",
+      username: "@adam_marox77",
+      url: "https://www.instagram.com/adam_marox77/",
+      logo: "◎",
+    },
+    {
+      type: "Snapchat",
+      username: "21cent",
+      url: "https://snapchat.com/t/5fd6xHYP",
+      logo: "👻",
+    },
+    {
+      type: "Snapchat",
+      username: "Adamgango",
+      url: "https://snapchat.com/t/vAWV7kT1",
+      logo: "👻",
+    },
+  ];
 
-      <nav className="navbar">
-        <div className="logo">
-          <span>21</span> RESELLING
-        </div>
+  return (
+    <main className="site">
+      {/* Animated background */}
+      <div className="ambient ambientOne" />
+      <div className="ambient ambientTwo" />
+      <div className="ambient ambientThree" />
+
+      <div className="noise" />
+
+      {/* NAVBAR */}
+      <header className="navbar">
+        <a href="#" className="brand">
+          <div className="brandMark">
+            21
+          </div>
+
+          <div className="brandText">
+            <strong>21</strong>
+            <span>RESELLING</span>
+          </div>
+        </a>
+
+        <nav>
+          <a href="#home">HOME</a>
+          <a href="#about">ABOUT US</a>
+          <a href="#socials">SOCIALS</a>
+          <a href="#vinted">VINTED</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
 
         <a href="#socials" className="navButton">
-          SOCIALS
+          CONNECT
         </a>
-      </nav>
+      </header>
 
-      <section className="hero">
-        <div className="heroImage">
-          <img src="/team.jpg" alt="21 Reselling Team" />
+      {/* HERO */}
+      <section id="home" className="hero">
+        <div
+          className="heroGlow"
+          style={{
+            transform: `translateY(${scrollY * 0.12}px)`,
+          }}
+        />
 
-          <div className="imageOverlay" />
+        <div className="heroContent">
+          <div className="eyebrow">
+            <span className="liveDot" />
+            21 RESELLING
+          </div>
 
-          <div className="heroBadge">
-            <span className="dot" />
-            ONLINE
+          <h1>
+            <span>21</span>
+            <strong>RESELLING</strong>
+          </h1>
+
+          <div className="slogan">
+            <span>2 MINDS.</span>
+            <span>1 PLAN.</span>
+          </div>
+
+          <p className="heroDescription">
+            Zwei Köpfe. Ein Ziel.
+            <br />
+            Streetwear, Reselling &amp; unsere Community.
+          </p>
+
+          <div className="heroActions">
+            <a href="#socials" className="primaryButton">
+              OUR SOCIALS
+              <span>↗</span>
+            </a>
+
+            <a href="#vinted" className="secondaryButton">
+              VINTED
+              <span>↗</span>
+            </a>
           </div>
         </div>
 
-        <div className="heroText">
-          <p className="smallTitle">WELCOME TO</p>
+        <div className="heroSide">
+          <div className="sideCard">
+            <div className="sideNumber">21</div>
 
-          <h1>
-            21
-            <span>RESELLING</span>
-          </h1>
+            <div className="sideLine" />
 
-          <p className="description">
-            Streetwear. Reselling. Community.
-            <br />
-            Alles an einem Ort.
-          </p>
+            <p>
+              BUILDING
+              <br />
+              SOMETHING
+              <br />
+              DIFFERENT.
+            </p>
+          </div>
+        </div>
+
+        <div className="scrollHint">
+          <span />
+          SCROLL TO EXPLORE
         </div>
       </section>
 
-      <section id="socials" className="socialSection">
-        <div className="sectionHeader">
-          <p>CONNECT WITH US</p>
-          <h2>Unsere Socials</h2>
+      {/* ABOUT */}
+      <section id="about" className="about">
+        <div className="sectionLabel">01 / ABOUT US</div>
+
+        <div className="aboutGrid">
+          <div>
+            <h2>
+              TWO MINDS.
+              <br />
+              <span>ONE VISION.</span>
+            </h2>
+          </div>
+
+          <div className="aboutText">
+            <p>
+              Wir sind <b>21 Reselling</b> – zwei Jungs mit einer
+              gemeinsamen Idee.
+            </p>
+
+            <p>
+              Wir entdecken Trends, finden starke Pieces und
+              bringen sie zu unserer Community.
+            </p>
+
+            <p className="muted">
+              Keine komplizierte Plattform. Einfach unsere
+              Socials checken und auf Vinted vorbeischauen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SOCIALS */}
+      <section id="socials" className="socials">
+        <div className="sectionTop">
+          <div>
+            <div className="sectionLabel">02 / SOCIALS</div>
+
+            <h2>
+              FIND
+              <br />
+              <span>US ONLINE.</span>
+            </h2>
+          </div>
+
+          <p className="sectionIntro">
+            Folgt uns auf unseren Plattformen und bleibt bei
+            neuen Drops, Listings und Updates immer dabei.
+          </p>
         </div>
 
         <div className="socialGrid">
           {socials.map((social, index) => (
             <a
-              key={index}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
               className="socialCard"
+              key={index}
             >
-              <div className="socialIcon">{social.icon}</div>
-
-              <div className="socialInfo">
-                <span>{social.platform}</span>
-                <strong>{social.name}</strong>
+              <div className="socialLogo">
+                {social.logo}
               </div>
 
-              <div className="arrow">↗</div>
+              <div className="socialDetails">
+                <span>{social.type}</span>
+                <strong>{social.username}</strong>
+              </div>
+
+              <div className="socialArrow">↗</div>
             </a>
           ))}
         </div>
       </section>
 
-      <section className="vintedSection">
-        <div className="vintedContent">
-          <p className="smallTitle">OUR MARKETPLACE</p>
+      {/* VINTED */}
+      <section id="vinted" className="vinted">
+        <div className="vintedOrb" />
 
-          <h2>
-            Checkt unseren
-            <br />
-            <span>Vinted Account.</span>
-          </h2>
+        <div className="sectionLabel">03 / MARKETPLACE</div>
 
-          <p className="vintedText">
-            Dort findet ihr alle unsere aktuellen Listings und
-            krassen Deals.
-          </p>
+        <div className="vintedGrid">
+          <div className="vintedMain">
+            <div className="vintedLogoBox">
+              <span>V</span>
+            </div>
 
-          <a
-            href="https://www.vinted.de/member/3178578094-21restocks"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="vintedButton"
-          >
-            <span>🛍️</span>
-            <span>VINTED ACCOUNT</span>
-            <b>↗</b>
-          </a>
-        </div>
+            <h2>
+              CHECKT UNSEREN
+              <br />
+              <span>VINTED ACCOUNT.</span>
+            </h2>
 
-        <div className="vintedCard">
-          <div className="vintedTop">
-            <span>21</span>
-            <span>VINTED</span>
+            <p>
+              Dort findet ihr alle unsere aktuellen Listings
+              und krassen Deals.
+            </p>
+
+            <a
+              href="https://www.vinted.de/member/3178578094-21restocks"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vintedButton"
+            >
+              <span className="vintedButtonLogo">V</span>
+              OPEN VINTED
+              <span>↗</span>
+            </a>
           </div>
 
-          <div className="vintedCircle">
-            21
-          </div>
+          <div className="profileCard">
+            <div className="profileHeader">
+              <span>21</span>
+              <span>VINTED</span>
+            </div>
 
-          <h3>21restocks</h3>
-          <p>Unsere aktuellen Listings</p>
+            <div className="profileAvatar">
+              21
+            </div>
 
-          <div className="fakeListings">
-            <div />
-            <div />
-            <div />
+            <h3>21restocks</h3>
+
+            <p>RESSELLING / STREETWEAR</p>
+
+            <div className="profileStats">
+              <div>
+                <strong>21</strong>
+                <span>SHOP</span>
+              </div>
+
+              <div>
+                <strong>∞</strong>
+                <span>DEALS</span>
+              </div>
+
+              <div>
+                <strong>24/7</strong>
+                <span>ONLINE</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* CONTACT */}
+      <section id="contact" className="contact">
+        <div className="sectionLabel">04 / CONTACT</div>
+
+        <h2>
+          GOT A
+          <br />
+          <span>QUESTION?</span>
+        </h2>
+
+        <p>
+          Schreib uns einfach über unsere Socials.
+          <br />
+          Wir melden uns so schnell wie möglich.
+        </p>
+
+        <a
+          href="mailto:21reselling.contact@gmail.com"
+          className="emailButton"
+        >
+          <span>✉</span>
+          CONTACT US
+          <span>↗</span>
+        </a>
+      </section>
+
+      {/* FOOTER */}
       <footer>
-        <div className="footerLogo">
-          <span>21</span> RESELLING
+        <div className="footerBrand">
+          <div className="footerMark">21</div>
+
+          <div>
+            <strong>21 RESELLING</strong>
+            <span>2 MINDS. 1 PLAN.</span>
+          </div>
         </div>
 
-        <p>Made with Passion.</p>
-
-        <p className="copyright">© 2026 21 Reselling</p>
+        <div className="footerRight">
+          <span>© 2026 21 RESELLING</span>
+          <span>MADE WITH PASSION.</span>
+        </div>
       </footer>
 
       <style jsx>{`
@@ -198,463 +343,730 @@ export default function Home() {
           box-sizing: border-box;
         }
 
-        .page {
-          min-height: 100vh;
-          overflow: hidden;
-          position: relative;
-          background:
-            radial-gradient(
-              circle at var(--mouse-x) var(--mouse-y),
-              rgba(103, 70, 255, 0.12),
-              transparent 25%
-            ),
-            linear-gradient(135deg, #08090d, #101118 45%, #08090d);
-          color: white;
-          font-family: Arial, Helvetica, sans-serif;
+        html {
+          scroll-behavior: smooth;
         }
 
-        .page::before {
-          content: "";
+        .site {
+          min-height: 100vh;
+          background:
+            radial-gradient(
+              circle at 70% 10%,
+              rgba(116, 75, 255, 0.14),
+              transparent 30%
+            ),
+            radial-gradient(
+              circle at 15% 55%,
+              rgba(0, 255, 190, 0.06),
+              transparent 30%
+            ),
+            #08090d;
+          color: #fff;
+          overflow: hidden;
+          font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+          position: relative;
+        }
+
+        .noise {
           position: fixed;
           inset: 0;
           pointer-events: none;
-          opacity: 0.08;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-          z-index: 0;
+          z-index: 20;
+          opacity: 0.035;
+          background-image:
+            repeating-linear-gradient(
+              0deg,
+              transparent,
+              transparent 2px,
+              #fff 3px
+            );
         }
 
-        .backgroundGlow {
+        .ambient {
           position: absolute;
-          width: 420px;
-          height: 420px;
+          width: 480px;
+          height: 480px;
           border-radius: 50%;
-          filter: blur(100px);
-          opacity: 0.15;
+          filter: blur(110px);
           pointer-events: none;
-          animation: float 12s ease-in-out infinite;
+          opacity: 0.13;
+          animation: floating 14s ease-in-out infinite;
         }
 
-        .glowOne {
-          background: #704cff;
-          top: 5%;
-          left: -180px;
+        .ambientOne {
+          top: 0;
+          right: -220px;
+          background: #6c45ff;
         }
 
-        .glowTwo {
-          background: #00d5b5;
-          top: 45%;
-          right: -180px;
-          animation-delay: -4s;
+        .ambientTwo {
+          top: 55%;
+          left: -250px;
+          background: #00d9ad;
+          animation-delay: -5s;
         }
 
-        .glowThree {
-          background: #774cff;
-          bottom: -180px;
-          left: 35%;
-          animation-delay: -8s;
+        .ambientThree {
+          bottom: -250px;
+          right: 20%;
+          background: #744cff;
+          animation-delay: -9s;
         }
 
-        @keyframes float {
+        @keyframes floating {
           0%,
           100% {
-            transform: translateY(0) scale(1);
+            transform: translate(0, 0);
           }
 
           50% {
-            transform: translateY(-45px) scale(1.08);
+            transform: translate(40px, -35px);
           }
         }
 
         .navbar {
           position: relative;
-          z-index: 5;
-          max-width: 1150px;
+          z-index: 10;
+          max-width: 1250px;
           margin: auto;
-          padding: 28px 25px;
+          padding: 28px 28px;
           display: flex;
-          justify-content: space-between;
           align-items: center;
+          justify-content: space-between;
+          gap: 30px;
         }
 
-        .logo,
-        .footerLogo {
+        .brand {
+          color: #fff;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .brandMark {
+          width: 42px;
+          height: 42px;
+          border: 1px solid rgba(255,255,255,0.3);
+          display: grid;
+          place-items: center;
           font-weight: 900;
+          font-size: 16px;
+          transform: skew(-8deg);
+        }
+
+        .brandText {
+          display: flex;
+          flex-direction: column;
+          line-height: 0.9;
+        }
+
+        .brandText strong {
+          font-size: 19px;
           letter-spacing: -1px;
         }
 
-        .logo span,
-        .footerLogo span {
-          font-size: 25px;
+        .brandText span {
+          font-size: 8px;
+          letter-spacing: 3px;
+          opacity: 0.5;
+          margin-top: 5px;
+        }
+
+        nav {
+          display: flex;
+          gap: 28px;
+        }
+
+        nav a {
+          color: rgba(255,255,255,0.55);
+          text-decoration: none;
+          font-size: 9px;
+          letter-spacing: 2px;
+          transition: 0.25s;
+        }
+
+        nav a:hover {
+          color: #fff;
         }
 
         .navButton {
+          color: #fff;
           text-decoration: none;
-          color: white;
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          padding: 12px 18px;
-          border-radius: 100px;
-          font-size: 11px;
+          font-size: 9px;
           letter-spacing: 2px;
-          background: rgba(255, 255, 255, 0.05);
+          padding: 13px 19px;
+          border: 1px solid rgba(255,255,255,0.18);
+          border-radius: 100px;
+          background: rgba(255,255,255,0.04);
           backdrop-filter: blur(15px);
-          transition: 0.3s;
-        }
-
-        .navButton:hover {
-          background: white;
-          color: black;
-          transform: translateY(-2px);
         }
 
         .hero {
           position: relative;
           z-index: 2;
-          max-width: 1150px;
-          margin: 40px auto 0;
-          padding: 0 25px 90px;
-          display: grid;
-          grid-template-columns: 1.15fr 0.85fr;
-          gap: 55px;
-          align-items: center;
-        }
-
-        .heroImage {
-          position: relative;
-          height: 560px;
-          border-radius: 28px;
-          overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
-        }
-
-        .heroImage img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
-          display: block;
-        }
-
-        .imageOverlay {
-          position: absolute;
-          inset: 0;
-          background:
-            linear-gradient(
-              to top,
-              rgba(5, 6, 10, 0.7),
-              transparent 55%
-            );
-        }
-
-        .heroBadge {
-          position: absolute;
-          left: 22px;
-          bottom: 22px;
-          padding: 10px 15px;
-          border-radius: 100px;
-          background: rgba(0, 0, 0, 0.4);
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(15px);
-          font-size: 10px;
-          letter-spacing: 2px;
-        }
-
-        .dot {
-          display: inline-block;
-          width: 7px;
-          height: 7px;
-          background: #68ff9c;
-          border-radius: 50%;
-          margin-right: 8px;
-          box-shadow: 0 0 12px #68ff9c;
-        }
-
-        .smallTitle {
-          color: rgba(255, 255, 255, 0.5);
-          font-size: 11px;
-          letter-spacing: 4px;
-          font-weight: bold;
-        }
-
-        .heroText h1 {
-          margin: 15px 0;
-          font-size: clamp(60px, 8vw, 105px);
-          line-height: 0.85;
-          letter-spacing: -7px;
-        }
-
-        .heroText h1 span {
-          display: block;
-          font-size: 0.42em;
-          letter-spacing: 7px;
-          margin-top: 18px;
-          opacity: 0.9;
-        }
-
-        .description {
-          color: rgba(255, 255, 255, 0.58);
-          line-height: 1.7;
-          font-size: 15px;
-        }
-
-        .socialSection {
-          position: relative;
-          z-index: 2;
-          max-width: 900px;
+          max-width: 1250px;
+          min-height: calc(100vh - 100px);
           margin: auto;
-          padding: 80px 25px;
+          padding: 80px 28px 120px;
+          display: flex;
+          align-items: center;
         }
 
-        .sectionHeader {
-          text-align: center;
-          margin-bottom: 35px;
+        .heroContent {
+          max-width: 800px;
         }
 
-        .sectionHeader p {
-          font-size: 10px;
+        .eyebrow,
+        .sectionLabel {
+          font-size: 9px;
           letter-spacing: 4px;
-          color: rgba(255, 255, 255, 0.4);
+          color: rgba(255,255,255,0.42);
+          font-weight: 700;
         }
 
-        .sectionHeader h2 {
-          font-size: 38px;
-          margin: 10px 0;
-          letter-spacing: -2px;
+        .liveDot {
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          background: #65ffb5;
+          border-radius: 50%;
+          margin-right: 9px;
+          box-shadow: 0 0 15px #65ffb5;
         }
 
-        .socialGrid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 13px;
+        .hero h1 {
+          margin: 28px 0 0;
+          line-height: 0.77;
+          letter-spacing: -9px;
         }
 
-        .socialCard {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          padding: 19px;
-          color: white;
-          text-decoration: none;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          background: rgba(255, 255, 255, 0.045);
-          backdrop-filter: blur(20px);
-          border-radius: 18px;
-          transition: 0.35s ease;
+        .hero h1 span {
+          display: block;
+          font-size: clamp(100px, 15vw, 190px);
+          font-weight: 900;
         }
 
-        .socialCard:hover {
-          transform: translateY(-5px);
-          background: rgba(255, 255, 255, 0.09);
-          border-color: rgba(255, 255, 255, 0.22);
-        }
-
-        .socialIcon {
-          width: 45px;
-          height: 45px;
-          border-radius: 14px;
-          display: grid;
-          place-items: center;
-          background: rgba(255, 255, 255, 0.08);
-          font-size: 20px;
-        }
-
-        .socialInfo {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-        }
-
-        .socialInfo span {
-          font-size: 10px;
-          text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.4);
-          letter-spacing: 2px;
-        }
-
-        .socialInfo strong {
-          font-size: 14px;
-        }
-
-        .arrow {
-          margin-left: auto;
-          color: rgba(255, 255, 255, 0.4);
-        }
-
-        .vintedSection {
-          position: relative;
-          z-index: 2;
-          max-width: 1100px;
-          margin: 40px auto 100px;
-          padding: 65px;
-          border-radius: 30px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          background:
-            radial-gradient(
-              circle at 80% 30%,
-              rgba(92, 66, 255, 0.15),
-              transparent 30%
-            ),
-            rgba(255, 255, 255, 0.035);
-          backdrop-filter: blur(25px);
-          display: grid;
-          grid-template-columns: 1fr 300px;
-          gap: 50px;
-          align-items: center;
-        }
-
-        .vintedContent h2 {
-          font-size: clamp(40px, 5vw, 62px);
-          line-height: 0.95;
-          letter-spacing: -4px;
-          margin: 18px 0;
-        }
-
-        .vintedContent h2 span {
-          opacity: 0.5;
-        }
-
-        .vintedText {
-          color: rgba(255, 255, 255, 0.5);
-          max-width: 450px;
-          line-height: 1.6;
-        }
-
-        .vintedButton {
+        .hero h1 strong {
+          display: block;
           margin-top: 28px;
+          font-size: clamp(28px, 4.5vw, 62px);
+          letter-spacing: 8px;
+          font-weight: 500;
+          color: rgba(255,255,255,0.86);
+        }
+
+        .slogan {
+          display: flex;
+          gap: 18px;
+          margin-top: 45px;
+          font-size: 13px;
+          letter-spacing: 4px;
+          font-weight: 800;
+        }
+
+        .slogan span:last-child {
+          color: #8c6aff;
+        }
+
+        .heroDescription {
+          color: rgba(255,255,255,0.48);
+          line-height: 1.7;
+          font-size: 14px;
+          margin-top: 22px;
+        }
+
+        .heroActions {
+          display: flex;
+          gap: 12px;
+          margin-top: 32px;
+        }
+
+        .primaryButton,
+        .secondaryButton,
+        .vintedButton,
+        .emailButton {
+          text-decoration: none;
           display: inline-flex;
           align-items: center;
-          gap: 12px;
-          padding: 15px 20px;
-          border-radius: 100px;
-          background: white;
-          color: black;
-          text-decoration: none;
-          font-size: 11px;
+          gap: 18px;
+          font-size: 9px;
+          letter-spacing: 2px;
           font-weight: 900;
-          letter-spacing: 1px;
           transition: 0.3s;
         }
 
-        .vintedButton:hover {
+        .primaryButton {
+          background: #fff;
+          color: #050505;
+          padding: 17px 22px;
+          border-radius: 100px;
+        }
+
+        .secondaryButton {
+          color: #fff;
+          padding: 17px 22px;
+          border: 1px solid rgba(255,255,255,0.16);
+          border-radius: 100px;
+          background: rgba(255,255,255,0.04);
+        }
+
+        .primaryButton:hover,
+        .secondaryButton:hover,
+        .vintedButton:hover,
+        .emailButton:hover {
           transform: translateY(-4px);
-          box-shadow: 0 15px 40px rgba(255, 255, 255, 0.15);
         }
 
-        .vintedButton b {
-          font-size: 16px;
+        .heroSide {
+          position: absolute;
+          right: 35px;
+          bottom: 130px;
         }
 
-        .vintedCard {
-          min-height: 360px;
-          border-radius: 25px;
-          padding: 22px;
-          background: linear-gradient(145deg, #1b1d25, #0d0e13);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
-          text-align: center;
-          transform: rotate(2deg);
+        .sideCard {
+          width: 180px;
+          height: 220px;
+          padding: 25px;
+          border: 1px solid rgba(255,255,255,0.12);
+          background: rgba(255,255,255,0.025);
+          backdrop-filter: blur(20px);
+          transform: rotate(5deg);
         }
 
-        .vintedTop {
+        .sideNumber {
+          font-size: 60px;
+          font-weight: 900;
+          opacity: 0.9;
+        }
+
+        .sideLine {
+          height: 1px;
+          width: 100%;
+          background: rgba(255,255,255,0.15);
+          margin: 25px 0;
+        }
+
+        .sideCard p {
+          font-size: 9px;
+          line-height: 1.8;
+          letter-spacing: 2px;
+          color: rgba(255,255,255,0.45);
+        }
+
+        .scrollHint {
+          position: absolute;
+          bottom: 35px;
+          left: 28px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 8px;
+          letter-spacing: 3px;
+          color: rgba(255,255,255,0.3);
+        }
+
+        .scrollHint span {
+          width: 25px;
+          height: 1px;
+          background: rgba(255,255,255,0.3);
+        }
+
+        .about,
+        .socials,
+        .vinted,
+        .contact {
+          position: relative;
+          z-index: 2;
+          max-width: 1100px;
+          margin: auto;
+          padding: 130px 28px;
+        }
+
+        .aboutGrid {
+          margin-top: 55px;
+          display: grid;
+          grid-template-columns: 1fr 0.7fr;
+          gap: 100px;
+        }
+
+        .about h2,
+        .socials h2,
+        .vinted h2,
+        .contact h2 {
+          font-size: clamp(55px, 8vw, 105px);
+          line-height: 0.86;
+          letter-spacing: -6px;
+          margin: 0;
+        }
+
+        .about h2 span,
+        .socials h2 span,
+        .vinted h2 span,
+        .contact h2 span {
+          color: rgba(255,255,255,0.28);
+        }
+
+        .aboutText {
+          color: rgba(255,255,255,0.55);
+          line-height: 1.8;
+          font-size: 14px;
+        }
+
+        .aboutText b {
+          color: #fff;
+        }
+
+        .aboutText .muted {
+          color: rgba(255,255,255,0.3);
+        }
+
+        .sectionTop {
           display: flex;
           justify-content: space-between;
-          color: rgba(255, 255, 255, 0.45);
-          font-size: 9px;
-          letter-spacing: 2px;
+          align-items: end;
+          gap: 50px;
         }
 
-        .vintedCircle {
-          width: 85px;
-          height: 85px;
-          margin: 40px auto 18px;
+        .sectionIntro {
+          max-width: 350px;
+          color: rgba(255,255,255,0.4);
+          font-size: 13px;
+          line-height: 1.7;
+        }
+
+        .socialGrid {
+          margin-top: 55px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+
+        .socialCard {
+          text-decoration: none;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          padding: 22px;
+          border-radius: 18px;
+          border: 1px solid rgba(255,255,255,0.1);
+          background: rgba(255,255,255,0.035);
+          backdrop-filter: blur(20px);
+          transition: 0.35s;
+        }
+
+        .socialCard:hover {
+          transform: translateY(-6px);
+          background: rgba(255,255,255,0.07);
+          border-color: rgba(145,110,255,0.45);
+        }
+
+        .socialLogo {
+          width: 52px;
+          height: 52px;
+          border-radius: 15px;
           display: grid;
           place-items: center;
-          border-radius: 50%;
-          font-size: 30px;
-          font-weight: 900;
-          background: rgba(255, 255, 255, 0.07);
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: linear-gradient(
+            145deg,
+            rgba(132,90,255,0.22),
+            rgba(255,255,255,0.04)
+          );
+          font-size: 25px;
         }
 
-        .vintedCard h3 {
+        .socialDetails {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .socialDetails span {
+          font-size: 8px;
+          color: rgba(255,255,255,0.35);
+          letter-spacing: 3px;
+        }
+
+        .socialDetails strong {
+          font-size: 14px;
+        }
+
+        .socialArrow {
+          margin-left: auto;
+          color: rgba(255,255,255,0.35);
+        }
+
+        .vinted {
+          max-width: 1100px;
+          padding: 80px 55px;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 30px;
+          background:
+            radial-gradient(
+              circle at 70% 20%,
+              rgba(130,90,255,0.17),
+              transparent 35%
+            ),
+            rgba(255,255,255,0.025);
+          overflow: hidden;
+        }
+
+        .vintedGrid {
+          margin-top: 50px;
+          display: grid;
+          grid-template-columns: 1fr 300px;
+          gap: 80px;
+          align-items: center;
+        }
+
+        .vintedLogoBox {
+          width: 55px;
+          height: 55px;
+          border-radius: 16px;
+          background: #fff;
+          color: #111;
+          display: grid;
+          place-items: center;
+          font-size: 28px;
+          font-weight: 900;
+          margin-bottom: 30px;
+        }
+
+        .vintedMain h2 {
+          font-size: clamp(45px, 6vw, 75px);
+        }
+
+        .vintedMain p {
+          max-width: 480px;
+          color: rgba(255,255,255,0.42);
+          line-height: 1.7;
+          font-size: 14px;
+          margin: 25px 0;
+        }
+
+        .vintedButton {
+          background: #fff;
+          color: #080808;
+          padding: 17px 22px;
+          border-radius: 100px;
+        }
+
+        .vintedButtonLogo {
+          font-size: 17px;
+          font-weight: 900;
+        }
+
+        .profileCard {
+          min-height: 330px;
+          border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 25px;
+          padding: 22px;
+          text-align: center;
+          background: linear-gradient(
+            145deg,
+            #191b22,
+            #0b0c10
+          );
+          transform: rotate(3deg);
+          box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .profileHeader {
+          display: flex;
+          justify-content: space-between;
+          font-size: 8px;
+          letter-spacing: 3px;
+          color: rgba(255,255,255,0.4);
+        }
+
+        .profileAvatar {
+          width: 85px;
+          height: 85px;
+          border-radius: 50%;
+          margin: 35px auto 18px;
+          display: grid;
+          place-items: center;
+          background:
+            radial-gradient(
+              circle at 30% 30%,
+              #9473ff,
+              #282039
+            );
+          font-size: 27px;
+          font-weight: 900;
+        }
+
+        .profileCard h3 {
           margin: 0;
           font-size: 21px;
         }
 
-        .vintedCard p {
-          margin: 7px 0 25px;
-          color: rgba(255, 255, 255, 0.4);
-          font-size: 12px;
+        .profileCard > p {
+          font-size: 8px;
+          letter-spacing: 2px;
+          color: rgba(255,255,255,0.35);
         }
 
-        .fakeListings {
+        .profileStats {
           display: flex;
-          gap: 7px;
+          justify-content: space-around;
+          margin-top: 35px;
         }
 
-        .fakeListings div {
-          height: 70px;
-          flex: 1;
-          border-radius: 10px;
-          background: rgba(255, 255, 255, 0.07);
+        .profileStats div {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .profileStats strong {
+          font-size: 16px;
+        }
+
+        .profileStats span {
+          font-size: 7px;
+          color: rgba(255,255,255,0.3);
+          letter-spacing: 2px;
+        }
+
+        .contact {
+          text-align: center;
+          padding-bottom: 160px;
+        }
+
+        .contact h2 {
+          margin-top: 40px;
+        }
+
+        .contact p {
+          color: rgba(255,255,255,0.4);
+          line-height: 1.8;
+          font-size: 13px;
+          margin: 30px 0;
+        }
+
+        .emailButton {
+          background: #fff;
+          color: #050505;
+          padding: 17px 24px;
+          border-radius: 100px;
         }
 
         footer {
-          position: relative;
-          z-index: 2;
           max-width: 1100px;
           margin: auto;
-          padding: 30px 25px 45px;
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 35px 28px 50px;
+          border-top: 1px solid rgba(255,255,255,0.08);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .footerBrand {
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          color: rgba(255, 255, 255, 0.4);
-          font-size: 11px;
+          gap: 12px;
         }
 
-        footer p {
-          margin: 0;
+        .footerMark {
+          width: 38px;
+          height: 38px;
+          border: 1px solid rgba(255,255,255,0.2);
+          display: grid;
+          place-items: center;
+          font-size: 13px;
+          font-weight: 900;
         }
 
-        @media (max-width: 750px) {
+        .footerBrand div:last-child {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .footerBrand strong {
+          font-size: 12px;
+        }
+
+        .footerBrand span,
+        .footerRight span {
+          font-size: 7px;
+          letter-spacing: 2px;
+          color: rgba(255,255,255,0.3);
+        }
+
+        .footerRight {
+          display: flex;
+          gap: 25px;
+        }
+
+        @media (max-width: 800px) {
           .navbar {
             padding: 22px 18px;
           }
 
+          nav {
+            display: none;
+          }
+
           .hero {
+            min-height: 800px;
+            padding: 80px 18px;
+          }
+
+          .hero h1 {
+            letter-spacing: -5px;
+          }
+
+          .hero h1 span {
+            font-size: 105px;
+          }
+
+          .hero h1 strong {
+            font-size: 31px;
+            letter-spacing: 4px;
+          }
+
+          .heroSide {
+            display: none;
+          }
+
+          .about,
+          .socials,
+          .vinted,
+          .contact {
+            padding: 90px 18px;
+          }
+
+          .aboutGrid,
+          .vintedGrid {
             grid-template-columns: 1fr;
-            margin-top: 20px;
-            padding: 0 18px 60px;
-            gap: 30px;
+            gap: 45px;
           }
 
-          .heroImage {
-            height: 420px;
-            border-radius: 22px;
+          .sectionTop {
+            display: block;
           }
 
-          .heroText h1 {
-            font-size: 75px;
-          }
-
-          .socialSection {
-            padding: 55px 18px;
+          .sectionIntro {
+            margin-top: 25px;
           }
 
           .socialGrid {
             grid-template-columns: 1fr;
           }
 
-          .vintedSection {
-            margin: 20px 18px 70px;
-            padding: 35px 25px;
-            grid-template-columns: 1fr;
+          .vinted {
+            margin: 20px 18px;
+            padding: 45px 25px;
           }
 
-          .vintedCard {
+          .profileCard {
             max-width: 300px;
-            width: 100%;
             margin: auto;
           }
 
@@ -663,7 +1075,13 @@ export default function Home() {
             padding-left: 0;
             padding-right: 0;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+          }
+
+          .footerRight {
+            flex-direction: column;
+            text-align: center;
+            gap: 8px;
           }
         }
       `}
