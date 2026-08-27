@@ -212,7 +212,12 @@ export default function Home() {
               key={index}
             >
               <div className="socialLogo">
-                {social.logo}
+                <img
+  src={social.logo}
+  alt={social.type}
+  width="32"
+  height="32"
+/>
               </div>
 
               <div className="socialDetails">
