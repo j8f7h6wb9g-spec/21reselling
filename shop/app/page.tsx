@@ -105,24 +105,20 @@ export default function Home() {
      BUSINESS ACCOUNTS
   ========================= */
 
-  const businessAccounts = [
+  const businessSocials = [
     {
-      name: "21 STOCKS",
-      subtitle: "OFFICIAL BUSINESS ACCOUNT",
-      platform: "TikTok",
-      handle: "@21stocks",
+      type: "TikTok",
+      username: "@21stocks",
+      label: "OFFICIAL BUSINESS",
       url: "https://www.tiktok.com/@21stocks",
       icon: <TikTokIcon />,
-      className: "businessTikTok",
     },
     {
-      name: "21restocks",
-      subtitle: "OFFICIAL VINTED SHOP",
-      platform: "Vinted",
-      handle: "21restocks",
+      type: "Vinted",
+      username: "21restocks",
+      label: "OFFICIAL SHOP",
       url: "https://www.vinted.de/member/3178578094-21restocks",
       icon: <VintedIcon />,
-      className: "businessVinted",
     },
   ];
 
@@ -130,7 +126,7 @@ export default function Home() {
      PERSONAL ACCOUNTS
   ========================= */
 
-  const socials = [
+  const personalSocials = [
     {
       type: "TikTok",
       username: "@youyu21bansky",
@@ -202,6 +198,7 @@ export default function Home() {
           <a href="#business">BUSINESS</a>
           <a href="#about">ABOUT US</a>
           <a href="#socials">SOCIALS</a>
+          <a href="#vinted">VINTED</a>
           <a href="#contact">CONTACT</a>
         </nav>
 
@@ -218,7 +215,7 @@ export default function Home() {
         <div
           className="heroGlow"
           style={{
-            transform: `translateY(${scrollY * 0.12}px)`,
+            transform: `translateY(${scrollY * 0.08}px)`,
           }}
         />
 
@@ -226,7 +223,7 @@ export default function Home() {
 
           <div className="eyebrow">
             <span className="liveDot" />
-            21 RESELLING
+            OFFICIAL RESELLING BRAND
           </div>
 
           <h1>
@@ -248,12 +245,12 @@ export default function Home() {
           <div className="heroActions">
 
             <a href="#business" className="primaryButton">
-              21 STOCKS
+              OUR BUSINESS
               <span>↗</span>
             </a>
 
-            <a href="#socials" className="secondaryButton">
-              OUR SOCIALS
+            <a href="#vinted" className="secondaryButton">
+              VINTED
               <span>↗</span>
             </a>
 
@@ -283,154 +280,72 @@ export default function Home() {
 
         </div>
 
-        <div className="scrollHint">
-          <span />
-          SCROLL TO EXPLORE
-        </div>
-
       </section>
 
-      {/* =========================
-          BUSINESS ACCOUNTS
-      ========================= */}
+      {/* BUSINESS */}
 
       <section id="business" className="business">
 
         <div className="sectionLabel">
-          01 / OFFICIAL BUSINESS
+          01 / OFFICIAL ACCOUNTS
         </div>
 
-        <div className="businessHeading">
+        <div className="businessTop">
 
-          <h2>
-            THIS IS
-            <br />
-            <span>21 STOCKS.</span>
-          </h2>
+          <div>
+            <h2>
+              21 STOCKS.
+              <br />
+              <span>OUR BUSINESS.</span>
+            </h2>
+          </div>
 
           <p>
-            Unser offizieller Business-Account und unser
-            offizieller Vinted-Shop – alles an einem Ort.
+            Das sind unsere offiziellen Business-Accounts.
+            Hier findet ihr unsere neuesten Drops, Listings,
+            Deals und Updates.
           </p>
 
         </div>
 
-        {/* POSTER */}
-
-        <div className="businessPoster">
-
-          <div className="posterNoise" />
-
-          <div className="posterTop">
-            <span>21 RESSELLING</span>
-            <span>EST. 2026</span>
-          </div>
-
-          <div className="posterCenter">
-
-            <div className="posterSmall">
-              OFFICIAL BUSINESS ACCOUNT
-            </div>
-
-            <h3>
-              21
-              <span>STOCKS</span>
-            </h3>
-
-            <div className="posterLine" />
-
-            <p>
-              STREETWEAR
-              <span>×</span>
-              RESELLING
-              <span>×</span>
-              VINTED
-            </p>
-
-          </div>
-
-          {/* Fake product collage */}
-
-          <div className="product productOne">
-            <div className="productShape hoodie">
-              HOODIE
-            </div>
-          </div>
-
-          <div className="product productTwo">
-            <div className="productShape sneaker">
-              SHOES
-            </div>
-          </div>
-
-          <div className="product productThree">
-            <div className="productShape cap">
-              CAP
-            </div>
-          </div>
-
-          <div className="product productFour">
-            <div className="productShape bag">
-              BAG
-            </div>
-          </div>
-
-          <div className="posterBottom">
-            <span>@21STOCKS</span>
-            <span>21RESTOCKS</span>
-          </div>
-
-        </div>
-
-        {/* BUSINESS CARDS */}
-
         <div className="businessGrid">
 
-          {businessAccounts.map((account, index) => (
+          {businessSocials.map((social, index) => (
 
             <a
-              key={index}
-              href={account.url}
+              href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`businessCard ${account.className}`}
+              className={`businessCard businessCard${index}`}
+              key={index}
             >
 
-              <div className="businessCardTop">
+              <div className="businessGlow" />
 
-                <span>
-                  {account.subtitle}
-                </span>
-
-                <span>
-                  ↗
-                </span>
-
+              <div className="businessLogo">
+                {social.icon}
               </div>
 
-              <div className="businessIcon">
-                {account.icon}
-              </div>
-
-              <div className="businessCardInfo">
+              <div className="businessInfo">
 
                 <span>
-                  {account.platform}
+                  {social.label}
                 </span>
 
                 <strong>
-                  {account.name}
+                  {social.username}
                 </strong>
 
-                <p>
-                  {account.handle}
-                </p>
+                <small>
+                  {social.type === "TikTok"
+                    ? "FOLLOW OUR BUSINESS"
+                    : "SHOP OUR CURRENT LISTINGS"}
+                </small>
 
               </div>
 
-              <div className="businessOpen">
-                OPEN ACCOUNT
-                <span>↗</span>
+              <div className="businessArrow">
+                ↗
               </div>
 
             </a>
@@ -441,31 +356,198 @@ export default function Home() {
 
       </section>
 
+      {/* VINTED POSTER */}
+
+      <section id="vinted" className="vinted">
+
+        <div className="vintedPosterGlow" />
+
+        <div className="sectionLabel">
+          02 / MARKETPLACE
+        </div>
+
+        <div className="vintedGrid">
+
+          <div className="vintedMain">
+
+            <div className="posterTag">
+              21 RESTOCKS / VINTED
+            </div>
+
+            <h2>
+              CHECKT UNSEREN
+              <br />
+              <span>VINTED ACCOUNT.</span>
+            </h2>
+
+            <p>
+              Dort findet ihr alle unsere aktuellen Listings
+              und krassen Deals.
+            </p>
+
+            <a
+              href="https://www.vinted.de/member/3178578094-21restocks"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vintedButton"
+            >
+
+              <span>
+                JETZT ANSEHEN
+              </span>
+
+              <span>→</span>
+
+            </a>
+
+          </div>
+
+          {/* PHONE POSTER */}
+
+          <div className="phoneScene">
+
+            <div className="posterText">
+              <span>21</span>
+              <strong>RESTOCKS</strong>
+            </div>
+
+            <div className="phone">
+
+              <div className="phoneScreen">
+
+                <div className="phoneTop">
+
+                  <strong>
+                    21 Reselling
+                  </strong>
+
+                  <span>
+                    VINTED
+                  </span>
+
+                </div>
+
+                <div className="vintedProfile">
+
+                  <div className="vintedAvatar">
+                    21
+                  </div>
+
+                  <h3>
+                    21restocks
+                  </h3>
+
+                  <p>
+                    Zwei Jungs · Reseller aus Deutschland
+                  </p>
+
+                  <div className="profileTags">
+
+                    <span>
+                      TOP QUALITÄT
+                    </span>
+
+                    <span>
+                      FAIRE PREISE
+                    </span>
+
+                    <span>
+                      SCHNELLER VERSAND
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <div className="phoneTabs">
+
+                  <span className="active">
+                    Kleiderschrank
+                  </span>
+
+                  <span>
+                    Bewertungen
+                  </span>
+
+                  <span>
+                    Über uns
+                  </span>
+
+                </div>
+
+                <div className="itemCount">
+                  32 Artikel
+                </div>
+
+                <div className="productGrid">
+
+                  <div className="productItem">
+                    <div className="productVisual hoodie">
+                      HOODIE
+                    </div>
+                    <span>Streetwear</span>
+                    <strong>24,99 €</strong>
+                  </div>
+
+                  <div className="productItem">
+                    <div className="productVisual jacket">
+                      JACKET
+                    </div>
+                    <span>Vintage</span>
+                    <strong>39,99 €</strong>
+                  </div>
+
+                  <div className="productItem">
+                    <div className="productVisual tee">
+                      TEE
+                    </div>
+                    <span>Oversized</span>
+                    <strong>19,99 €</strong>
+                  </div>
+
+                  <div className="productItem">
+                    <div className="productVisual pants">
+                      PANTS
+                    </div>
+                    <span>Streetwear</span>
+                    <strong>29,99 €</strong>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
       {/* ABOUT */}
 
       <section id="about" className="about">
 
         <div className="sectionLabel">
-          02 / ABOUT US
+          03 / ABOUT US
         </div>
 
         <div className="aboutGrid">
 
           <div>
-
             <h2>
               TWO MINDS.
               <br />
               <span>ONE VISION.</span>
             </h2>
-
           </div>
 
           <div className="aboutText">
 
             <p>
-              Wir sind <b>21 Reselling</b> – zwei Jungs mit
-              einer gemeinsamen Idee.
+              Wir sind <b>21 Reselling</b> – zwei Jungs mit einer
+              gemeinsamen Idee.
             </p>
 
             <p>
@@ -474,107 +556,45 @@ export default function Home() {
             </p>
 
             <p className="muted">
-              Unser Business läuft über 21 Stocks und unseren
-              Vinted-Shop 21restocks.
+              Hinter dem Business stehen zwei Freunde,
+              die gemeinsam an 21 Reselling arbeiten.
             </p>
 
-          </div>
+            <div className="contributors">
 
-        </div>
+              <div className="contributor">
+                <div className="contributorNumber">
+                  01
+                </div>
 
-        {/* MITWIRKENDE */}
+                <div>
+                  <strong>
+                    YOUSSEF
+                  </strong>
 
-        <div className="contributors">
+                  <span>
+                    CO-FOUNDER / RESELLER
+                  </span>
+                </div>
+              </div>
 
-          <div className="contributorsTitle">
+              <div className="contributor">
+                <div className="contributorNumber">
+                  02
+                </div>
 
-            <div className="sectionLabel">
-              MITWIRKENDE
+                <div>
+                  <strong>
+                    ADAM
+                  </strong>
+
+                  <span>
+                    CO-FOUNDER / RESELLER
+                  </span>
+                </div>
+              </div>
+
             </div>
-
-            <h3>
-              THE PEOPLE
-              <br />
-              <span>BEHIND 21.</span>
-            </h3>
-
-          </div>
-
-          <div className="contributorsGrid">
-
-            <a
-              href="https://www.tiktok.com/@youyu21bansky"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="personCard"
-            >
-
-              <div className="personNumber">
-                01
-              </div>
-
-              <div className="personAvatar">
-                Y
-              </div>
-
-              <div className="personInfo">
-
-                <span>
-                  CO-FOUNDER
-                </span>
-
-                <strong>
-                  YOUSSEF
-                </strong>
-
-                <small>
-                  @youyu21bansky
-                </small>
-
-              </div>
-
-              <div className="personArrow">
-                ↗
-              </div>
-
-            </a>
-
-            <a
-              href="https://www.tiktok.com/@adam4go"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="personCard"
-            >
-
-              <div className="personNumber">
-                02
-              </div>
-
-              <div className="personAvatar">
-                A
-              </div>
-
-              <div className="personInfo">
-
-                <span>
-                  CO-FOUNDER
-                </span>
-
-                <strong>
-                  ADAM
-                </strong>
-
-                <small>
-                  @adam4go
-                </small>
-
-              </div>
-
-              <div className="personArrow">
-                ↗
-              </div>
-
-            </a>
 
           </div>
 
@@ -582,7 +602,7 @@ export default function Home() {
 
       </section>
 
-      {/* SOCIALS */}
+      {/* PERSONAL SOCIALS */}
 
       <section id="socials" className="socials">
 
@@ -591,7 +611,7 @@ export default function Home() {
           <div>
 
             <div className="sectionLabel">
-              03 / SOCIALS
+              04 / OUR PERSONAL ACCOUNTS
             </div>
 
             <h2>
@@ -603,15 +623,16 @@ export default function Home() {
           </div>
 
           <p className="sectionIntro">
-            Folgt uns auf unseren persönlichen Accounts und
-            bleibt bei neuen Drops, Content und Updates dabei.
+            Hier findet ihr unsere persönlichen Accounts.
+            Folgt uns auch dort und begleitet uns neben
+            21 Reselling.
           </p>
 
         </div>
 
         <div className="socialGrid">
 
-          {socials.map((social, index) => (
+          {personalSocials.map((social, index) => (
 
             <a
               href={social.url}
@@ -644,98 +665,6 @@ export default function Home() {
             </a>
 
           ))}
-
-        </div>
-
-      </section>
-
-      {/* VINTED */}
-
-      <section id="vinted" className="vinted">
-
-        <div className="vintedOrb" />
-
-        <div className="sectionLabel">
-          04 / MARKETPLACE
-        </div>
-
-        <div className="vintedGrid">
-
-          <div className="vintedMain">
-
-            <div className="vintedLogoBox">
-              <VintedIcon />
-            </div>
-
-            <h2>
-              CHECKT UNSEREN
-              <br />
-              <span>VINTED ACCOUNT.</span>
-            </h2>
-
-            <p>
-              Dort findet ihr alle unsere aktuellen Listings
-              und krassen Deals.
-            </p>
-
-            <a
-              href="https://www.vinted.de/member/3178578094-21restocks"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="vintedButton"
-            >
-
-              <span className="vintedButtonLogo">
-                <VintedIcon />
-              </span>
-
-              OPEN VINTED
-
-              <span>↗</span>
-
-            </a>
-
-          </div>
-
-          <div className="profileCard">
-
-            <div className="profileHeader">
-              <span>21</span>
-              <span>VINTED</span>
-            </div>
-
-            <div className="profileAvatar">
-              21
-            </div>
-
-            <h3>
-              21restocks
-            </h3>
-
-            <p>
-              RESELLING / STREETWEAR
-            </p>
-
-            <div className="profileStats">
-
-              <div>
-                <strong>21</strong>
-                <span>SHOP</span>
-              </div>
-
-              <div>
-                <strong>∞</strong>
-                <span>DEALS</span>
-              </div>
-
-              <div>
-                <strong>24/7</strong>
-                <span>ONLINE</span>
-              </div>
-
-            </div>
-
-          </div>
 
         </div>
 
@@ -787,7 +716,6 @@ export default function Home() {
           </div>
 
           <div>
-
             <strong>
               21 RESELLING
             </strong>
@@ -795,7 +723,6 @@ export default function Home() {
             <span>
               2 MINDS. 1 PLAN.
             </span>
-
           </div>
 
         </div>
@@ -844,10 +771,7 @@ export default function Home() {
             #08090d;
           color: #fff;
           overflow: hidden;
-          font-family:
-            Arial,
-            Helvetica,
-            sans-serif;
+          font-family: Arial, Helvetica, sans-serif;
           position: relative;
         }
 
@@ -917,7 +841,7 @@ export default function Home() {
           z-index: 10;
           max-width: 1250px;
           margin: auto;
-          padding: 28px;
+          padding: 24px 28px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -963,7 +887,7 @@ export default function Home() {
 
         nav {
           display: flex;
-          gap: 28px;
+          gap: 24px;
         }
 
         nav a {
@@ -996,11 +920,24 @@ export default function Home() {
           position: relative;
           z-index: 2;
           max-width: 1250px;
-          min-height: calc(100vh - 100px);
+          min-height: calc(100vh - 90px);
           margin: auto;
-          padding: 80px 28px 120px;
+          padding: 35px 28px 90px;
           display: flex;
           align-items: center;
+        }
+
+        .heroGlow {
+          position: absolute;
+          width: 500px;
+          height: 500px;
+          border-radius: 50%;
+          right: 5%;
+          top: 10%;
+          background: #6947ff;
+          filter: blur(160px);
+          opacity: 0.13;
+          pointer-events: none;
         }
 
         .heroContent {
@@ -1026,7 +963,7 @@ export default function Home() {
         }
 
         .hero h1 {
-          margin: 28px 0 0;
+          margin: 20px 0 0;
           line-height: 0.77;
           letter-spacing: -9px;
         }
@@ -1049,7 +986,7 @@ export default function Home() {
         .slogan {
           display: flex;
           gap: 18px;
-          margin-top: 45px;
+          margin-top: 38px;
           font-size: 13px;
           letter-spacing: 4px;
           font-weight: 800;
@@ -1063,13 +1000,13 @@ export default function Home() {
           color: rgba(255,255,255,0.48);
           line-height: 1.7;
           font-size: 14px;
-          margin-top: 22px;
+          margin-top: 20px;
         }
 
         .heroActions {
           display: flex;
           gap: 12px;
-          margin-top: 32px;
+          margin-top: 28px;
         }
 
         .primaryButton,
@@ -1111,7 +1048,7 @@ export default function Home() {
         .heroSide {
           position: absolute;
           right: 35px;
-          bottom: 130px;
+          bottom: 110px;
         }
 
         .sideCard {
@@ -1127,6 +1064,7 @@ export default function Home() {
         .sideNumber {
           font-size: 60px;
           font-weight: 900;
+          opacity: 0.9;
         }
 
         .sideLine {
@@ -1143,25 +1081,7 @@ export default function Home() {
           color: rgba(255,255,255,0.45);
         }
 
-        .scrollHint {
-          position: absolute;
-          bottom: 35px;
-          left: 28px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 8px;
-          letter-spacing: 3px;
-          color: rgba(255,255,255,0.3);
-        }
-
-        .scrollHint span {
-          width: 25px;
-          height: 1px;
-          background: rgba(255,255,255,0.3);
-        }
-
-        /* SECTIONS */
+        /* GENERAL SECTIONS */
 
         .about,
         .socials,
@@ -1172,358 +1092,431 @@ export default function Home() {
           z-index: 2;
           max-width: 1100px;
           margin: auto;
-          padding: 130px 28px;
+          padding: 110px 28px;
         }
 
         /* BUSINESS */
 
-        .businessHeading {
+        .businessTop {
           margin-top: 45px;
           display: flex;
-          align-items: end;
           justify-content: space-between;
           gap: 60px;
+          align-items: end;
         }
 
-        .businessHeading h2 {
-          font-size: clamp(60px, 8vw, 105px);
-          line-height: 0.85;
+        .business h2 {
+          font-size: clamp(55px, 8vw, 105px);
+          line-height: 0.86;
           letter-spacing: -6px;
           margin: 0;
         }
 
-        .businessHeading h2 span {
-          color: rgba(255,255,255,0.25);
+        .business h2 span {
+          color: rgba(255,255,255,0.28);
         }
 
-        .businessHeading p {
-          max-width: 330px;
-          color: rgba(255,255,255,0.4);
-          line-height: 1.7;
+        .businessTop > p {
+          max-width: 350px;
+          color: rgba(255,255,255,0.42);
           font-size: 13px;
+          line-height: 1.8;
         }
-
-        /* POSTER */
-
-        .businessPoster {
-          position: relative;
-          margin-top: 60px;
-          min-height: 480px;
-          overflow: hidden;
-          border-radius: 28px;
-          border: 1px solid rgba(255,255,255,0.15);
-          background:
-            radial-gradient(
-              circle at 50% 50%,
-              rgba(130,95,255,0.3),
-              transparent 35%
-            ),
-            linear-gradient(
-              135deg,
-              #111217,
-              #090a0e 55%,
-              #171020
-            );
-          box-shadow:
-            0 40px 100px rgba(0,0,0,0.45);
-        }
-
-        .posterNoise {
-          position: absolute;
-          inset: 0;
-          opacity: 0.08;
-          background:
-            repeating-linear-gradient(
-              45deg,
-              transparent 0,
-              transparent 4px,
-              rgba(255,255,255,0.2) 5px
-            );
-        }
-
-        .posterTop,
-        .posterBottom {
-          position: absolute;
-          left: 30px;
-          right: 30px;
-          display: flex;
-          justify-content: space-between;
-          font-size: 8px;
-          letter-spacing: 4px;
-          color: rgba(255,255,255,0.5);
-        }
-
-        .posterTop {
-          top: 25px;
-        }
-
-        .posterBottom {
-          bottom: 25px;
-        }
-
-        .posterCenter {
-          position: absolute;
-          inset: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          z-index: 3;
-        }
-
-        .posterSmall {
-          font-size: 9px;
-          letter-spacing: 5px;
-          color: rgba(255,255,255,0.5);
-          margin-bottom: 20px;
-        }
-
-        .posterCenter h3 {
-          margin: 0;
-          font-size: clamp(70px, 12vw, 145px);
-          line-height: 0.7;
-          font-weight: 900;
-          letter-spacing: -8px;
-          text-shadow:
-            0 0 50px rgba(139,100,255,0.4);
-        }
-
-        .posterCenter h3 span {
-          display: block;
-          font-size: 0.43em;
-          letter-spacing: 14px;
-          margin-top: 25px;
-          color: rgba(255,255,255,0.8);
-        }
-
-        .posterLine {
-          width: 150px;
-          height: 1px;
-          background: rgba(255,255,255,0.25);
-          margin: 35px 0 20px;
-        }
-
-        .posterCenter p {
-          display: flex;
-          gap: 15px;
-          align-items: center;
-          margin: 0;
-          font-size: 8px;
-          letter-spacing: 4px;
-          color: rgba(255,255,255,0.45);
-        }
-
-        .posterCenter p span {
-          color: #9272ff;
-        }
-
-        /* PRODUCTS */
-
-        .product {
-          position: absolute;
-          z-index: 2;
-          opacity: 0.7;
-          filter: drop-shadow(0 25px 25px rgba(0,0,0,0.55));
-        }
-
-        .productShape {
-          display: grid;
-          place-items: center;
-          font-size: 8px;
-          letter-spacing: 2px;
-          font-weight: 900;
-          color: rgba(255,255,255,0.5);
-          border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .productOne {
-          left: 7%;
-          top: 23%;
-          transform: rotate(-14deg);
-        }
-
-        .hoodie {
-          width: 145px;
-          height: 175px;
-          border-radius: 28px 28px 18px 18px;
-          background:
-            linear-gradient(
-              145deg,
-              #252630,
-              #101116
-            );
-          clip-path: polygon(
-            25% 0,
-            75% 0,
-            100% 25%,
-            82% 38%,
-            88% 100%,
-            12% 100%,
-            18% 38%,
-            0 25%
-          );
-        }
-
-        .productTwo {
-          right: 8%;
-          top: 17%;
-          transform: rotate(18deg);
-        }
-
-        .sneaker {
-          width: 155px;
-          height: 75px;
-          border-radius: 60% 50% 20% 20%;
-          background:
-            linear-gradient(
-              135deg,
-              #282a33,
-              #0b0c10
-            );
-          clip-path: polygon(
-            0 55%,
-            40% 38%,
-            55% 5%,
-            72% 20%,
-            100% 65%,
-            95% 85%,
-            5% 85%
-          );
-        }
-
-        .productThree {
-          left: 12%;
-          bottom: 13%;
-          transform: rotate(9deg);
-        }
-
-        .cap {
-          width: 125px;
-          height: 70px;
-          border-radius: 80px 80px 20px 20px;
-          background:
-            linear-gradient(
-              145deg,
-              #2b2935,
-              #111116
-            );
-        }
-
-        .productFour {
-          right: 12%;
-          bottom: 12%;
-          transform: rotate(-12deg);
-        }
-
-        .bag {
-          width: 110px;
-          height: 135px;
-          border-radius: 12px;
-          background:
-            linear-gradient(
-              145deg,
-              #242630,
-              #0b0c10
-            );
-        }
-
-        /* BUSINESS CARDS */
 
         .businessGrid {
-          margin-top: 18px;
+          margin-top: 50px;
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 14px;
+          gap: 15px;
         }
 
         .businessCard {
           position: relative;
-          min-height: 290px;
-          padding: 25px;
-          border-radius: 22px;
-          border: 1px solid rgba(255,255,255,0.11);
+          overflow: hidden;
+          min-height: 210px;
+          padding: 30px;
+          border-radius: 24px;
+          border: 1px solid rgba(255,255,255,0.12);
           background: rgba(255,255,255,0.035);
           color: #fff;
           text-decoration: none;
-          overflow: hidden;
-          transition: 0.35s;
+          display: flex;
+          align-items: center;
+          gap: 22px;
+          transition: 0.4s;
         }
 
         .businessCard:hover {
-          transform: translateY(-8px);
-          border-color: rgba(255,255,255,0.3);
+          transform: translateY(-7px);
+          border-color: rgba(145,110,255,0.5);
+          background: rgba(255,255,255,0.06);
         }
 
-        .businessTikTok:hover {
-          box-shadow: 0 30px 80px rgba(37,244,238,0.08);
+        .businessGlow {
+          position: absolute;
+          width: 180px;
+          height: 180px;
+          border-radius: 50%;
+          right: -70px;
+          top: -70px;
+          filter: blur(55px);
+          opacity: 0.18;
+          background: #744cff;
         }
 
-        .businessVinted:hover {
-          box-shadow: 0 30px 80px rgba(127,92,255,0.1);
+        .businessCard1 .businessGlow {
+          background: #00d9ad;
         }
 
-        .businessCardTop {
-          display: flex;
-          justify-content: space-between;
-          color: rgba(255,255,255,0.3);
-          font-size: 7px;
-          letter-spacing: 3px;
-        }
-
-        .businessIcon {
-          width: 62px;
-          height: 62px;
-          border-radius: 18px;
+        .businessLogo {
+          position: relative;
+          z-index: 2;
+          width: 70px;
+          height: 70px;
+          border-radius: 20px;
           display: grid;
           place-items: center;
-          margin-top: 35px;
-        }
-
-        .businessTikTok .businessIcon {
           background: #000;
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.15),
-            0 0 35px rgba(37,244,238,0.1);
+          box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
-        .businessVinted .businessIcon {
+        .businessCard1 .businessLogo {
           background: #fff;
           color: #111;
         }
 
-        .businessCardInfo {
+        .businessInfo {
+          position: relative;
+          z-index: 2;
           display: flex;
           flex-direction: column;
-          margin-top: 25px;
+          gap: 8px;
         }
 
-        .businessCardInfo span {
+        .businessInfo span {
           font-size: 8px;
           letter-spacing: 3px;
           color: rgba(255,255,255,0.35);
         }
 
-        .businessCardInfo strong {
-          font-size: 25px;
-          margin-top: 6px;
+        .businessInfo strong {
+          font-size: 22px;
         }
 
-        .businessCardInfo p {
-          margin: 6px 0 0;
-          color: rgba(255,255,255,0.4);
-          font-size: 12px;
-        }
-
-        .businessOpen {
-          position: absolute;
-          right: 25px;
-          bottom: 25px;
+        .businessInfo small {
           font-size: 8px;
-          letter-spacing: 2px;
+          letter-spacing: 1.5px;
+          color: rgba(255,255,255,0.35);
+        }
+
+        .businessArrow {
+          position: relative;
+          z-index: 2;
+          margin-left: auto;
           color: rgba(255,255,255,0.4);
+          font-size: 20px;
+        }
+
+        /* VINTED */
+
+        .vinted {
+          max-width: 1100px;
+          padding: 75px 55px;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 30px;
+          background:
+            radial-gradient(
+              circle at 70% 20%,
+              rgba(130,90,255,0.17),
+              transparent 35%
+            ),
+            rgba(255,255,255,0.025);
+          overflow: hidden;
+        }
+
+        .vintedPosterGlow {
+          position: absolute;
+          width: 400px;
+          height: 400px;
+          right: 0;
+          bottom: -200px;
+          border-radius: 50%;
+          background: #6d4aff;
+          filter: blur(130px);
+          opacity: 0.15;
+        }
+
+        .vintedGrid {
+          margin-top: 45px;
+          display: grid;
+          grid-template-columns: 1fr 420px;
+          gap: 55px;
+          align-items: center;
+        }
+
+        .posterTag {
+          display: inline-block;
+          padding: 8px 12px;
+          border: 1px solid rgba(255,255,255,0.13);
+          border-radius: 100px;
+          color: rgba(255,255,255,0.4);
+          font-size: 7px;
+          letter-spacing: 2px;
+          margin-bottom: 25px;
+        }
+
+        .vintedMain h2 {
+          font-size: clamp(45px, 6vw, 75px);
+          line-height: 0.88;
+          letter-spacing: -5px;
+          margin: 0;
+        }
+
+        .vintedMain h2 span {
+          color: rgba(255,255,255,0.28);
+        }
+
+        .vintedMain p {
+          max-width: 420px;
+          color: rgba(255,255,255,0.42);
+          line-height: 1.7;
+          font-size: 14px;
+          margin: 25px 0;
+        }
+
+        .vintedButton {
+          background: #4d8dff;
+          color: #fff;
+          padding: 17px 22px;
+          border-radius: 100px;
+          box-shadow: 0 10px 35px rgba(77,141,255,0.25);
+        }
+
+        /* PHONE */
+
+        .phoneScene {
+          position: relative;
+          min-height: 570px;
           display: flex;
-          gap: 10px;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .posterText {
+          position: absolute;
+          right: -20px;
+          top: 15px;
+          display: flex;
+          flex-direction: column;
+          text-align: right;
+          opacity: 0.15;
+          transform: rotate(-5deg);
+        }
+
+        .posterText span {
+          font-size: 70px;
+          font-weight: 900;
+          line-height: 0.7;
+        }
+
+        .posterText strong {
+          font-size: 17px;
+          letter-spacing: 8px;
+        }
+
+        .phone {
+          position: relative;
+          width: 285px;
+          height: 555px;
+          border-radius: 38px;
+          padding: 8px;
+          background: #111217;
+          border: 1px solid rgba(255,255,255,0.22);
+          box-shadow:
+            0 35px 90px rgba(0,0,0,0.65),
+            0 0 60px rgba(100,75,255,0.13);
+          transform: rotate(4deg);
+          overflow: hidden;
+        }
+
+        .phone::before {
+          content: "";
+          position: absolute;
+          width: 95px;
+          height: 25px;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius: 30px;
+          background: #050506;
+          z-index: 5;
+        }
+
+        .phoneScreen {
+          height: 100%;
+          border-radius: 31px;
+          background: #f8f8fa;
+          color: #17171a;
+          overflow: hidden;
+        }
+
+        .phoneTop {
+          padding: 45px 17px 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .phoneTop strong {
+          font-size: 15px;
+        }
+
+        .phoneTop span {
+          font-size: 7px;
+          letter-spacing: 1.5px;
+          color: #888;
+        }
+
+        .vintedProfile {
+          text-align: center;
+          padding: 8px 15px 12px;
+        }
+
+        .vintedAvatar {
+          width: 58px;
+          height: 58px;
+          border-radius: 50%;
+          margin: auto;
+          display: grid;
+          place-items: center;
+          background: linear-gradient(135deg, #714cff, #251d4d);
+          color: #fff;
+          font-size: 20px;
+          font-weight: 900;
+        }
+
+        .vintedProfile h3 {
+          margin: 8px 0 3px;
+          font-size: 17px;
+        }
+
+        .vintedProfile p {
+          margin: 0;
+          font-size: 7px;
+          color: #888;
+        }
+
+        .profileTags {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 4px;
+          margin-top: 10px;
+        }
+
+        .profileTags span {
+          padding: 5px 6px;
+          border-radius: 20px;
+          background: #ededf0;
+          font-size: 5px;
+          letter-spacing: 0.5px;
+          color: #666;
+        }
+
+        .phoneTabs {
+          display: flex;
+          justify-content: space-around;
+          padding: 10px 5px 7px;
+          border-bottom: 1px solid #e4e4e6;
+          font-size: 6px;
+          color: #999;
+        }
+
+        .phoneTabs .active {
+          color: #111;
+          font-weight: 800;
+        }
+
+        .itemCount {
+          padding: 10px 14px 5px;
+          font-size: 8px;
+          font-weight: 800;
+        }
+
+        .productGrid {
+          padding: 5px 10px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 7px;
+        }
+
+        .productItem {
+          background: #fff;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .productVisual {
+          height: 105px;
+          display: grid;
+          place-items: center;
+          font-size: 8px;
+          font-weight: 900;
+          letter-spacing: 1px;
+        }
+
+        .hoodie {
+          background:
+            linear-gradient(
+              135deg,
+              #222,
+              #777
+            );
+          color: #fff;
+        }
+
+        .jacket {
+          background:
+            linear-gradient(
+              135deg,
+              #ddd,
+              #888
+            );
+          color: #222;
+        }
+
+        .tee {
+          background:
+            linear-gradient(
+              135deg,
+              #111,
+              #444
+            );
+          color: #fff;
+        }
+
+        .pants {
+          background:
+            linear-gradient(
+              135deg,
+              #555,
+              #bbb
+            );
+          color: #fff;
+        }
+
+        .productItem > span {
+          display: block;
+          padding: 5px 7px 1px;
+          font-size: 6px;
+          color: #999;
+        }
+
+        .productItem > strong {
+          display: block;
+          padding: 2px 7px 7px;
+          font-size: 8px;
         }
 
         /* ABOUT */
@@ -1537,7 +1530,6 @@ export default function Home() {
 
         .about h2,
         .socials h2,
-        .vinted h2,
         .contact h2 {
           font-size: clamp(55px, 8vw, 105px);
           line-height: 0.86;
@@ -1547,7 +1539,6 @@ export default function Home() {
 
         .about h2 span,
         .socials h2 span,
-        .vinted h2 span,
         .contact h2 span {
           color: rgba(255,255,255,0.28);
         }
@@ -1566,105 +1557,47 @@ export default function Home() {
           color: rgba(255,255,255,0.3);
         }
 
-        /* CONTRIBUTORS */
-
         .contributors {
-          margin-top: 110px;
-          padding-top: 50px;
-          border-top: 1px solid rgba(255,255,255,0.08);
+          margin-top: 35px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
         }
 
-        .contributorsTitle h3 {
-          margin: 25px 0 0;
-          font-size: clamp(45px, 6vw, 75px);
-          line-height: 0.85;
-          letter-spacing: -4px;
-        }
-
-        .contributorsTitle h3 span {
-          color: rgba(255,255,255,0.25);
-        }
-
-        .contributorsGrid {
-          margin-top: 45px;
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 14px;
-        }
-
-        .personCard {
-          position: relative;
+        .contributor {
           display: flex;
           align-items: center;
-          gap: 18px;
-          min-height: 150px;
-          padding: 20px;
-          color: #fff;
-          text-decoration: none;
-          border: 1px solid rgba(255,255,255,0.1);
-          border-radius: 20px;
+          gap: 15px;
+          padding: 15px;
+          border: 1px solid rgba(255,255,255,0.08);
           background: rgba(255,255,255,0.025);
-          transition: 0.3s;
+          border-radius: 14px;
         }
 
-        .personCard:hover {
-          transform: translateY(-5px);
-          background: rgba(255,255,255,0.06);
-        }
-
-        .personNumber {
-          position: absolute;
-          right: 20px;
-          top: 17px;
-          color: rgba(255,255,255,0.2);
-          font-size: 9px;
+        .contributorNumber {
+          font-size: 8px;
+          color: #8d70ff;
           letter-spacing: 2px;
         }
 
-        .personAvatar {
-          width: 65px;
-          height: 65px;
-          flex-shrink: 0;
-          border-radius: 50%;
-          display: grid;
-          place-items: center;
-          background:
-            radial-gradient(
-              circle at 30% 30%,
-              #9578ff,
-              #252034
-            );
-          font-size: 22px;
-          font-weight: 900;
-        }
-
-        .personInfo {
+        .contributor div:last-child {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 4px;
         }
 
-        .personInfo span {
+        .contributor strong {
+          color: #fff;
+          font-size: 12px;
+        }
+
+        .contributor span {
           font-size: 7px;
-          letter-spacing: 3px;
-          color: rgba(255,255,255,0.35);
-        }
-
-        .personInfo strong {
-          font-size: 19px;
-        }
-
-        .personInfo small {
-          font-size: 10px;
-          color: rgba(255,255,255,0.4);
-        }
-
-        .personArrow {
-          margin-left: auto;
+          letter-spacing: 1.5px;
           color: rgba(255,255,255,0.3);
         }
 
-        /* SOCIALS */
+        /* PERSONAL SOCIALS */
 
         .sectionTop {
           display: flex;
@@ -1713,18 +1646,32 @@ export default function Home() {
           border-radius: 15px;
           display: grid;
           place-items: center;
+          transition: 0.3s;
         }
 
         .socialLogo.tiktok {
           background: #000;
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.12),
+            0 0 25px rgba(37,244,238,0.12);
         }
 
         .socialLogo.instagram {
           background: #fff;
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.15),
+            0 0 25px rgba(225,48,108,0.12);
         }
 
         .socialLogo.snapchat {
           background: #fffc00;
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.15),
+            0 0 25px rgba(255,252,0,0.15);
+        }
+
+        .socialLogo svg {
+          display: block;
         }
 
         .socialDetails {
@@ -1746,144 +1693,6 @@ export default function Home() {
         .socialArrow {
           margin-left: auto;
           color: rgba(255,255,255,0.35);
-        }
-
-        /* VINTED */
-
-        .vinted {
-          max-width: 1100px;
-          padding: 80px 55px;
-          border: 1px solid rgba(255,255,255,0.1);
-          border-radius: 30px;
-          background:
-            radial-gradient(
-              circle at 70% 20%,
-              rgba(130,90,255,0.17),
-              transparent 35%
-            ),
-            rgba(255,255,255,0.025);
-          overflow: hidden;
-        }
-
-        .vintedGrid {
-          margin-top: 50px;
-          display: grid;
-          grid-template-columns: 1fr 300px;
-          gap: 80px;
-          align-items: center;
-        }
-
-        .vintedLogoBox {
-          width: 55px;
-          height: 55px;
-          border-radius: 16px;
-          background: #fff;
-          color: #111;
-          display: grid;
-          place-items: center;
-          margin-bottom: 30px;
-        }
-
-        .vintedMain h2 {
-          font-size: clamp(45px, 6vw, 75px);
-        }
-
-        .vintedMain p {
-          max-width: 480px;
-          color: rgba(255,255,255,0.42);
-          line-height: 1.7;
-          font-size: 14px;
-          margin: 25px 0;
-        }
-
-        .vintedButton {
-          background: #fff;
-          color: #080808;
-          padding: 17px 22px;
-          border-radius: 100px;
-        }
-
-        .vintedButtonLogo {
-          display: flex;
-          align-items: center;
-        }
-
-        .vintedButtonLogo svg {
-          width: 20px;
-          height: 20px;
-        }
-
-        .profileCard {
-          min-height: 330px;
-          border: 1px solid rgba(255,255,255,0.12);
-          border-radius: 25px;
-          padding: 22px;
-          text-align: center;
-          background: linear-gradient(
-            145deg,
-            #191b22,
-            #0b0c10
-          );
-          transform: rotate(3deg);
-          box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-        }
-
-        .profileHeader {
-          display: flex;
-          justify-content: space-between;
-          font-size: 8px;
-          letter-spacing: 3px;
-          color: rgba(255,255,255,0.4);
-        }
-
-        .profileAvatar {
-          width: 85px;
-          height: 85px;
-          border-radius: 50%;
-          margin: 35px auto 18px;
-          display: grid;
-          place-items: center;
-          background:
-            radial-gradient(
-              circle at 30% 30%,
-              #9473ff,
-              #282039
-            );
-          font-size: 27px;
-          font-weight: 900;
-        }
-
-        .profileCard h3 {
-          margin: 0;
-          font-size: 21px;
-        }
-
-        .profileCard > p {
-          font-size: 8px;
-          letter-spacing: 2px;
-          color: rgba(255,255,255,0.35);
-        }
-
-        .profileStats {
-          display: flex;
-          justify-content: space-around;
-          margin-top: 35px;
-        }
-
-        .profileStats div {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-
-        .profileStats strong {
-          font-size: 16px;
-        }
-
-        .profileStats span {
-          font-size: 7px;
-          color: rgba(255,255,255,0.3);
-          letter-spacing: 2px;
         }
 
         /* CONTACT */
@@ -1966,7 +1775,7 @@ export default function Home() {
         @media (max-width: 800px) {
 
           .navbar {
-            padding: 22px 18px;
+            padding: 20px 18px;
           }
 
           nav {
@@ -1974,8 +1783,8 @@ export default function Home() {
           }
 
           .hero {
-            min-height: 800px;
-            padding: 80px 18px;
+            min-height: 720px;
+            padding: 40px 18px 80px;
           }
 
           .hero h1 {
@@ -2000,58 +1809,34 @@ export default function Home() {
           .business,
           .vinted,
           .contact {
-            padding: 90px 18px;
+            padding: 85px 18px;
           }
 
-          .businessHeading {
+          .businessTop {
             display: block;
           }
 
-          .businessHeading p {
+          .businessTop > p {
             margin-top: 25px;
-          }
-
-          .businessPoster {
-            min-height: 430px;
-          }
-
-          .posterCenter h3 {
-            font-size: 85px;
-          }
-
-          .posterCenter p {
-            gap: 7px;
-            letter-spacing: 2px;
-          }
-
-          .productOne {
-            left: -35px;
-          }
-
-          .productTwo {
-            right: -35px;
-          }
-
-          .productThree {
-            left: -20px;
-          }
-
-          .productFour {
-            right: -20px;
           }
 
           .businessGrid {
             grid-template-columns: 1fr;
           }
 
+          .businessCard {
+            min-height: 180px;
+            padding: 22px;
+          }
+
+          .businessInfo strong {
+            font-size: 18px;
+          }
+
           .aboutGrid,
           .vintedGrid {
             grid-template-columns: 1fr;
             gap: 45px;
-          }
-
-          .contributorsGrid {
-            grid-template-columns: 1fr;
           }
 
           .sectionTop {
@@ -2071,9 +1856,16 @@ export default function Home() {
             padding: 45px 25px;
           }
 
-          .profileCard {
-            max-width: 300px;
-            margin: auto;
+          .phoneScene {
+            min-height: 570px;
+          }
+
+          .phone {
+            width: 265px;
+          }
+
+          .posterText {
+            right: -5px;
           }
 
           footer {
