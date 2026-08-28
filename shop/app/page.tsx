@@ -2,45 +2,92 @@
 
 import { useEffect, useState } from "react";
 
+/* =========================
+   SOCIAL ICONS
+========================= */
+
 const TikTokIcon = () => (
-  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-    <path d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z" />
+  <svg viewBox="0 0 24 24" width="32" height="32">
+    <path
+      fill="#25F4EE"
+      d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z"
+    />
+    <path
+      fill="#FE2C55"
+      transform="translate(-1,1)"
+      d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z"
+    />
+    <path
+      fill="#000"
+      d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z"
+    />
   </svg>
 );
 
 const InstagramIcon = () => (
-  <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+  <svg viewBox="0 0 24 24" width="32" height="32">
+    <defs>
+      <linearGradient id="instagramGradient" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0%" stopColor="#FFDC80" />
+        <stop offset="25%" stopColor="#FC7C2D" />
+        <stop offset="55%" stopColor="#E1306C" />
+        <stop offset="78%" stopColor="#C13584" />
+        <stop offset="100%" stopColor="#833AB4" />
+      </linearGradient>
+    </defs>
+
     <rect
       x="3"
       y="3"
       width="18"
       height="18"
       rx="5"
-      stroke="currentColor"
-      strokeWidth="2"
+      fill="none"
+      stroke="url(#instagramGradient)"
+      strokeWidth="2.5"
     />
+
     <circle
       cx="12"
       cy="12"
       r="4"
-      stroke="currentColor"
+      fill="none"
+      stroke="url(#instagramGradient)"
       strokeWidth="2"
     />
-    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+
+    <circle
+      cx="17.3"
+      cy="6.7"
+      r="1.3"
+      fill="#E1306C"
+    />
   </svg>
 );
 
 const SnapchatIcon = () => (
-  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-    <path d="M12 3c-3.1 0-5 2.2-5 5.2v2.1c0 .8-.3 1.3-1.1 1.7l-1.4.6c-.4.2-.5.7-.1 1 .7.6 1.6.9 2.5 1 .3 1.2 1 2.1 2.1 2.6-.1.6-.5 1.1-1.1 1.3-.3.1-.3.6 0 .7.9.4 1.9.1 2.6-.3.7.5 1.5.8 2.5.8s1.8-.3 2.5-.8c.7.4 1.7.7 2.6.3.3-.1.3-.6 0-.7-.6-.2-1-.7-1.1-1.3 1.1-.5 1.8-1.4 2.1-2.6.9-.1 1.8-.4 2.5-1 .4-.3.3-.8-.1-1l-1.4-.6c-.8-.4-1.1-.9-1.1-1.7V8.2C17 5.2 15.1 3 12 3z" />
+  <svg viewBox="0 0 24 24" width="32" height="32">
+    <path
+      fill="#fff"
+      stroke="#000"
+      strokeWidth="0.7"
+      d="M12 3c-3.1 0-5 2.2-5 5.2v2.1c0 .8-.3 1.3-1.1 1.7l-1.4.6c-.4.2-.5.7-.1 1 .7.6 1.6.9 2.5 1 .3 1.2 1 2.1 2.1 2.6-.1.6-.5 1.1-1.1 1.3-.3.1-.3.6 0 .7.9.4 1.9.1 2.6-.3.7.5 1.5.8 2.5.8s1.8-.3 2.5-.8c.7.4 1.7.7 2.6.3.3-.1.3-.6 0-.7-.6-.2-1-.7-1.1-1.3 1.1-.5 1.8-1.4 2.1-2.6.9-.1 1.8-.4 2.5-1 .4-.3.3-.8-.1-1l-1.4-.6c-.8-.4-1.1-.9-1.1-1.7V8.2C17 5.2 15.1 3 12 3z"
+    />
   </svg>
 );
 
 const VintedIcon = () => (
-  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-    <path d="M4 5h4l4 9 4-9h4l-6.2 14h-3.6L4 5z" />
+  <svg viewBox="0 0 24 24" width="32" height="32">
+    <path
+      fill="currentColor"
+      d="M4 5h4l4 9 4-9h4l-6.2 14h-3.6L4 5z"
+    />
   </svg>
 );
+
+/* =========================
+   MAIN PAGE
+========================= */
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -52,6 +99,10 @@ export default function Home() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  /* =========================
+     SOCIAL ACCOUNTS
+  ========================= */
 
   const socials = [
     {
@@ -90,30 +141,35 @@ export default function Home() {
       url: "https://snapchat.com/t/vAWV7kT1",
       icon: <SnapchatIcon />,
     },
-    {
-      type: "Vinted",
-      username: "21restocks",
-      url: "https://www.vinted.de/member/3178578094-21restocks",
-      icon: <VintedIcon />,
-    },
   ];
 
   return (
     <main className="site">
+
+      {/* BACKGROUND */}
       <div className="ambient ambientOne" />
       <div className="ambient ambientTwo" />
       <div className="ambient ambientThree" />
 
       <div className="noise" />
 
+      {/* =========================
+          NAVBAR
+      ========================= */}
+
       <header className="navbar">
-        <a href="#" className="brand">
-          <div className="brandMark">21</div>
+
+        <a href="#home" className="brand">
+
+          <div className="brandMark">
+            21
+          </div>
 
           <div className="brandText">
             <strong>21</strong>
             <span>RESELLING</span>
           </div>
+
         </a>
 
         <nav>
@@ -127,9 +183,15 @@ export default function Home() {
         <a href="#socials" className="navButton">
           CONNECT
         </a>
+
       </header>
 
+      {/* =========================
+          HERO
+      ========================= */}
+
       <section id="home" className="hero">
+
         <div
           className="heroGlow"
           style={{
@@ -138,6 +200,7 @@ export default function Home() {
         />
 
         <div className="heroContent">
+
           <div className="eyebrow">
             <span className="liveDot" />
             21 RESELLING
@@ -160,6 +223,7 @@ export default function Home() {
           </p>
 
           <div className="heroActions">
+
             <a href="#socials" className="primaryButton">
               OUR SOCIALS
               <span>↗</span>
@@ -169,12 +233,18 @@ export default function Home() {
               VINTED
               <span>↗</span>
             </a>
+
           </div>
+
         </div>
 
         <div className="heroSide">
+
           <div className="sideCard">
-            <div className="sideNumber">21</div>
+
+            <div className="sideNumber">
+              21
+            </div>
 
             <div className="sideLine" />
 
@@ -185,19 +255,30 @@ export default function Home() {
               <br />
               DIFFERENT.
             </p>
+
           </div>
+
         </div>
 
         <div className="scrollHint">
           <span />
           SCROLL TO EXPLORE
         </div>
+
       </section>
 
+      {/* =========================
+          ABOUT
+      ========================= */}
+
       <section id="about" className="about">
-        <div className="sectionLabel">01 / ABOUT US</div>
+
+        <div className="sectionLabel">
+          01 / ABOUT US
+        </div>
 
         <div className="aboutGrid">
+
           <div>
             <h2>
               TWO MINDS.
@@ -207,6 +288,7 @@ export default function Home() {
           </div>
 
           <div className="aboutText">
+
             <p>
               Wir sind <b>21 Reselling</b> – zwei Jungs mit einer
               gemeinsamen Idee.
@@ -221,30 +303,46 @@ export default function Home() {
               Keine komplizierte Plattform. Einfach unsere
               Socials checken und auf Vinted vorbeischauen.
             </p>
+
           </div>
+
         </div>
+
       </section>
 
+      {/* =========================
+          SOCIALS
+      ========================= */}
+
       <section id="socials" className="socials">
+
         <div className="sectionTop">
+
           <div>
-            <div className="sectionLabel">02 / SOCIALS</div>
+
+            <div className="sectionLabel">
+              02 / SOCIALS
+            </div>
 
             <h2>
               FIND
               <br />
               <span>US ONLINE.</span>
             </h2>
+
           </div>
 
           <p className="sectionIntro">
             Folgt uns auf unseren Plattformen und bleibt bei
             neuen Drops, Listings und Updates immer dabei.
           </p>
+
         </div>
 
         <div className="socialGrid">
+
           {socials.map((social, index) => (
+
             <a
               href={social.url}
               target="_blank"
@@ -252,28 +350,51 @@ export default function Home() {
               className="socialCard"
               key={index}
             >
-              <div className="socialLogo">
+
+              <div className={`socialLogo ${social.type.toLowerCase()}`}>
                 {social.icon}
               </div>
 
               <div className="socialDetails">
-                <span>{social.type}</span>
-                <strong>{social.username}</strong>
+
+                <span>
+                  {social.type}
+                </span>
+
+                <strong>
+                  {social.username}
+                </strong>
+
               </div>
 
-              <div className="socialArrow">↗</div>
+              <div className="socialArrow">
+                ↗
+              </div>
+
             </a>
+
           ))}
+
         </div>
+
       </section>
 
+      {/* =========================
+          VINTED
+      ========================= */}
+
       <section id="vinted" className="vinted">
+
         <div className="vintedOrb" />
 
-        <div className="sectionLabel">03 / MARKETPLACE</div>
+        <div className="sectionLabel">
+          03 / MARKETPLACE
+        </div>
 
         <div className="vintedGrid">
+
           <div className="vintedMain">
+
             <div className="vintedLogoBox">
               <VintedIcon />
             </div>
@@ -295,27 +416,40 @@ export default function Home() {
               rel="noopener noreferrer"
               className="vintedButton"
             >
+
               <span className="vintedButtonLogo">
                 <VintedIcon />
               </span>
+
               OPEN VINTED
+
               <span>↗</span>
+
             </a>
+
           </div>
 
           <div className="profileCard">
+
             <div className="profileHeader">
               <span>21</span>
               <span>VINTED</span>
             </div>
 
-            <div className="profileAvatar">21</div>
+            <div className="profileAvatar">
+              21
+            </div>
 
-            <h3>21restocks</h3>
+            <h3>
+              21restocks
+            </h3>
 
-            <p>RESELLING / STREETWEAR</p>
+            <p>
+              RESSELLING / STREETWEAR
+            </p>
 
             <div className="profileStats">
+
               <div>
                 <strong>21</strong>
                 <span>SHOP</span>
@@ -330,13 +464,24 @@ export default function Home() {
                 <strong>24/7</strong>
                 <span>ONLINE</span>
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+      {/* =========================
+          CONTACT
+      ========================= */}
+
       <section id="contact" className="contact">
-        <div className="sectionLabel">04 / CONTACT</div>
+
+        <div className="sectionLabel">
+          04 / CONTACT
+        </div>
 
         <h2>
           GOT A
@@ -354,29 +499,61 @@ export default function Home() {
           href="mailto:21reselling.contact@gmail.com"
           className="emailButton"
         >
+
           <span>✉</span>
+
           CONTACT US
+
           <span>↗</span>
+
         </a>
+
       </section>
 
+      {/* =========================
+          FOOTER
+      ========================= */}
+
       <footer>
+
         <div className="footerBrand">
-          <div className="footerMark">21</div>
+
+          <div className="footerMark">
+            21
+          </div>
 
           <div>
-            <strong>21 RESELLING</strong>
-            <span>2 MINDS. 1 PLAN.</span>
+            <strong>
+              21 RESELLING
+            </strong>
+
+            <span>
+              2 MINDS. 1 PLAN.
+            </span>
           </div>
+
         </div>
 
         <div className="footerRight">
-          <span>© 2026 21 RESELLING</span>
-          <span>MADE WITH PASSION.</span>
+
+          <span>
+            © 2026 21 RESELLING
+          </span>
+
+          <span>
+            MADE WITH PASSION.
+          </span>
+
         </div>
+
       </footer>
 
+      {/* =========================
+          CSS
+      ========================= */}
+
       <style jsx>{`
+
         * {
           box-sizing: border-box;
         }
@@ -401,7 +578,10 @@ export default function Home() {
             #08090d;
           color: #fff;
           overflow: hidden;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
           position: relative;
         }
 
@@ -411,12 +591,13 @@ export default function Home() {
           pointer-events: none;
           z-index: 20;
           opacity: 0.035;
-          background-image: repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            #fff 3px
-          );
+          background-image:
+            repeating-linear-gradient(
+              0deg,
+              transparent,
+              transparent 2px,
+              #fff 3px
+            );
         }
 
         .ambient {
@@ -451,6 +632,7 @@ export default function Home() {
         }
 
         @keyframes floating {
+
           0%,
           100% {
             transform: translate(0, 0);
@@ -459,6 +641,7 @@ export default function Home() {
           50% {
             transform: translate(40px, -35px);
           }
+
         }
 
         .navbar {
@@ -805,17 +988,32 @@ export default function Home() {
           border-radius: 15px;
           display: grid;
           place-items: center;
-          background: linear-gradient(
-            145deg,
-            rgba(132,90,255,0.22),
-            rgba(255,255,255,0.04)
-          );
-          font-size: 25px;
+          transition: 0.3s;
+        }
+
+        .socialLogo.tiktok {
+          background: #000;
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.12),
+            0 0 25px rgba(37,244,238,0.12);
+        }
+
+        .socialLogo.instagram {
+          background: #fff;
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.15),
+            0 0 25px rgba(225,48,108,0.12);
+        }
+
+        .socialLogo.snapchat {
+          background: #fffc00;
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.15),
+            0 0 25px rgba(255,252,0,0.15);
         }
 
         .socialLogo svg {
-          width: 30px;
-          height: 30px;
+          display: block;
         }
 
         .socialDetails {
@@ -871,11 +1069,6 @@ export default function Home() {
           display: grid;
           place-items: center;
           margin-bottom: 30px;
-        }
-
-        .vintedLogoBox svg {
-          width: 30px;
-          height: 30px;
         }
 
         .vintedMain h2 {
@@ -1052,6 +1245,7 @@ export default function Home() {
         }
 
         @media (max-width: 800px) {
+
           .navbar {
             padding: 22px 18px;
           }
@@ -1130,8 +1324,11 @@ export default function Home() {
             text-align: center;
             gap: 8px;
           }
+
         }
+
       `}</style>
+
     </main>
   );
 }
