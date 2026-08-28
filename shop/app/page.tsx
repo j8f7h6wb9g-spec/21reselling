@@ -7,24 +7,17 @@ import { useEffect, useState } from "react";
 ========================= */
 
 const TikTokIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    width="32"
-    height="32"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg viewBox="0 0 24 24" width="32" height="32">
     <path
       fill="#25F4EE"
       d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
       transform="translate(-1 1)"
     />
-
     <path
       fill="#FE2C55"
       d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
       transform="translate(1 -1)"
     />
-
     <path
       fill="#000"
       d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
@@ -109,10 +102,31 @@ export default function Home() {
   }, []);
 
   /* =========================
-     SOCIAL ACCOUNTS
+     BUSINESS ACCOUNTS
   ========================= */
 
-  const socials = [
+  const businessAccounts = [
+    {
+      type: "TikTok",
+      name: "21stocks",
+      label: "OFFICIAL BUSINESS ACCOUNT",
+      url: "https://www.tiktok.com/@21stocks",
+      icon: <TikTokIcon />,
+    },
+    {
+      type: "Vinted",
+      name: "21restocks",
+      label: "OFFICIAL SHOP",
+      url: "https://www.vinted.de/member/3178578094-21restocks",
+      icon: <VintedIcon />,
+    },
+  ];
+
+  /* =========================
+     PERSONAL ACCOUNTS
+  ========================= */
+
+  const personalAccounts = [
     {
       type: "TikTok",
       username: "@youyu21bansky",
@@ -123,12 +137,6 @@ export default function Home() {
       type: "TikTok",
       username: "@adam4go",
       url: "https://www.tiktok.com/@adam4go",
-      icon: <TikTokIcon />,
-    },
-    {
-      type: "TikTok",
-      username: "@21stocks",
-      url: "https://www.tiktok.com/@21stocks",
       icon: <TikTokIcon />,
     },
     {
@@ -161,6 +169,7 @@ export default function Home() {
     <main className="site">
 
       {/* BACKGROUND */}
+
       <div className="ambient ambientOne" />
       <div className="ambient ambientTwo" />
       <div className="ambient ambientThree" />
@@ -172,27 +181,23 @@ export default function Home() {
       <header className="navbar">
 
         <a href="#home" className="brand">
-
-          <div className="brandMark">
-            21
-          </div>
+          <div className="brandMark">21</div>
 
           <div className="brandText">
             <strong>21</strong>
             <span>RESELLING</span>
           </div>
-
         </a>
 
         <nav>
           <a href="#home">HOME</a>
+          <a href="#business">BUSINESS</a>
           <a href="#about">ABOUT US</a>
-          <a href="#vinted">VINTED</a>
           <a href="#socials">SOCIALS</a>
           <a href="#contact">CONTACT</a>
         </nav>
 
-        <a href="#vinted" className="navButton">
+        <a href="#business" className="navButton">
           SHOP
         </a>
 
@@ -234,13 +239,13 @@ export default function Home() {
 
           <div className="heroActions">
 
-            <a href="#vinted" className="primaryButton">
-              SHOP ON VINTED
+            <a href="#business" className="primaryButton">
+              OUR BUSINESS
               <span>↗</span>
             </a>
 
-            <a href="#socials" className="secondaryButton">
-              OUR SOCIALS
+            <a href="#about" className="secondaryButton">
+              ABOUT US
               <span>↗</span>
             </a>
 
@@ -277,29 +282,101 @@ export default function Home() {
 
       </section>
 
-      {/* ABOUT */}
+      {/* BUSINESS ACCOUNTS */}
+
+      <section id="business" className="business">
+
+        <div className="sectionLabel">
+          01 / OFFICIAL ACCOUNTS
+        </div>
+
+        <div className="businessTop">
+
+          <div>
+            <h2>
+              OUR
+              <br />
+              <span>BUSINESS.</span>
+            </h2>
+          </div>
+
+          <p>
+            Das sind unsere offiziellen 21 Reselling Accounts.
+            Hier findet ihr unsere neuesten Updates, Produkte
+            und Listings.
+          </p>
+
+        </div>
+
+        <div className="businessGrid">
+
+          {businessAccounts.map((account, index) => (
+
+            <a
+              href={account.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="businessCard"
+              key={index}
+            >
+
+              <div className="businessIcon">
+                {account.icon}
+              </div>
+
+              <div className="businessInfo">
+
+                <span>
+                  {account.type}
+                </span>
+
+                <strong>
+                  {account.name}
+                </strong>
+
+                <small>
+                  {account.label}
+                </small>
+
+              </div>
+
+              <div className="businessArrow">
+                ↗
+              </div>
+
+            </a>
+
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* ABOUT US */}
 
       <section id="about" className="about">
 
         <div className="sectionLabel">
-          01 / ABOUT US
+          02 / ABOUT US
         </div>
 
         <div className="aboutGrid">
 
           <div>
+
             <h2>
               TWO MINDS.
               <br />
               <span>ONE VISION.</span>
             </h2>
+
           </div>
 
           <div className="aboutText">
 
             <p>
-              Wir sind <b>21 Reselling</b> – zwei Jungs mit einer
-              gemeinsamen Idee.
+              Wir sind <b>21 Reselling</b> – zwei Jungs mit
+              einer gemeinsamen Idee.
             </p>
 
             <p>
@@ -308,99 +385,73 @@ export default function Home() {
             </p>
 
             <p className="muted">
-              Keine komplizierte Plattform. Einfach unsere
-              Socials checken und auf Vinted vorbeischauen.
+              Unsere offiziellen Business Accounts findest du
+              oben. Unsere persönlichen Accounts findest du
+              weiter unten.
             </p>
 
           </div>
 
         </div>
 
-      </section>
+        {/* MITWIRKENDE */}
 
-      {/* VINTED */}
+        <div className="contributors">
 
-      <section id="vinted" className="vinted">
+          <div className="contributorsTitle">
+            <span>THE PEOPLE BEHIND 21</span>
+            <h3>
+              MITWIRKENDE
+            </h3>
+          </div>
 
-        <div className="vintedOrb" />
+          <div className="contributorsGrid">
 
-        <div className="sectionLabel">
-          02 / MARKETPLACE
-        </div>
+            <div className="personCard">
 
-        <div className="vintedGrid">
+              <div className="personNumber">
+                01
+              </div>
 
-          <div className="vintedMain">
+              <div className="personAvatar">
+                Y
+              </div>
 
-            <div className="vintedLogoBox">
-              <VintedIcon />
-            </div>
-
-            <h2>
-              CHECKT UNSEREN
-              <br />
-              <span>VINTED ACCOUNT.</span>
-            </h2>
-
-            <p>
-              Dort findet ihr alle unsere aktuellen Listings
-              und krassen Deals.
-            </p>
-
-            <a
-              href="https://www.vinted.de/member/3178578094-21restocks"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="vintedButton"
-            >
-
-              <span className="vintedButtonLogo">
-                <VintedIcon />
+              <span>
+                CO-FOUNDER
               </span>
 
-              OPEN VINTED
+              <h4>
+                YOUSSEF
+              </h4>
 
-              <span>↗</span>
+              <p>
+                21 RESELLING
+              </p>
 
-            </a>
-
-          </div>
-
-          <div className="profileCard">
-
-            <div className="profileHeader">
-              <span>21</span>
-              <span>VINTED</span>
             </div>
 
-            <div className="profileAvatar">
-              21
-            </div>
+            <div className="personCard">
 
-            <h3>
-              21restocks
-            </h3>
-
-            <p>
-              RESELLING / STREETWEAR
-            </p>
-
-            <div className="profileStats">
-
-              <div>
-                <strong>21</strong>
-                <span>SHOP</span>
+              <div className="personNumber">
+                02
               </div>
 
-              <div>
-                <strong>∞</strong>
-                <span>DEALS</span>
+              <div className="personAvatar">
+                A
               </div>
 
-              <div>
-                <strong>24/7</strong>
-                <span>ONLINE</span>
-              </div>
+              <span>
+                CO-FOUNDER
+              </span>
+
+              <h4>
+                ADAM
+              </h4>
+
+              <p>
+                21 RESELLING
+              </p>
 
             </div>
 
@@ -419,7 +470,7 @@ export default function Home() {
           <div>
 
             <div className="sectionLabel">
-              03 / SOCIALS
+              03 / PERSONAL SOCIALS
             </div>
 
             <h2>
@@ -431,15 +482,15 @@ export default function Home() {
           </div>
 
           <p className="sectionIntro">
-            Folgt uns auf unseren Plattformen und bleibt bei
-            neuen Drops, Listings und Updates immer dabei.
+            Hier findet ihr unsere persönlichen Accounts.
+            Folgt uns für Content, Updates und Einblicke.
           </p>
 
         </div>
 
         <div className="socialGrid">
 
-          {socials.map((social, index) => (
+          {personalAccounts.map((social, index) => (
 
             <a
               href={social.url}
@@ -576,10 +627,7 @@ export default function Home() {
             #08090d;
           color: #fff;
           overflow: hidden;
-          font-family:
-            Arial,
-            Helvetica,
-            sans-serif;
+          font-family: Arial, Helvetica, sans-serif;
           position: relative;
         }
 
@@ -802,7 +850,6 @@ export default function Home() {
 
         .primaryButton,
         .secondaryButton,
-        .vintedButton,
         .emailButton {
           text-decoration: none;
           display: inline-flex;
@@ -831,8 +878,9 @@ export default function Home() {
 
         .primaryButton:hover,
         .secondaryButton:hover,
-        .vintedButton:hover,
-        .emailButton:hover {
+        .emailButton:hover,
+        .businessCard:hover,
+        .socialCard:hover {
           transform: translateY(-4px);
         }
 
@@ -890,9 +938,9 @@ export default function Home() {
           background: rgba(255,255,255,0.3);
         }
 
+        .business,
         .about,
         .socials,
-        .vinted,
         .contact {
           position: relative;
           z-index: 2;
@@ -901,16 +949,17 @@ export default function Home() {
           padding: 130px 28px;
         }
 
-        .aboutGrid {
-          margin-top: 55px;
-          display: grid;
-          grid-template-columns: 1fr 0.7fr;
-          gap: 100px;
+        .businessTop {
+          margin-top: 45px;
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+          gap: 60px;
         }
 
+        .business h2,
         .about h2,
         .socials h2,
-        .vinted h2,
         .contact h2 {
           font-size: clamp(55px, 8vw, 105px);
           line-height: 0.86;
@@ -918,11 +967,108 @@ export default function Home() {
           margin: 0;
         }
 
+        .business h2 span,
         .about h2 span,
         .socials h2 span,
-        .vinted h2 span,
         .contact h2 span {
           color: rgba(255,255,255,0.28);
+        }
+
+        .businessTop p {
+          max-width: 350px;
+          color: rgba(255,255,255,0.4);
+          font-size: 13px;
+          line-height: 1.8;
+        }
+
+        .businessGrid {
+          margin-top: 55px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+        }
+
+        .businessCard {
+          color: #fff;
+          text-decoration: none;
+          padding: 30px;
+          min-height: 190px;
+          border-radius: 24px;
+          border: 1px solid rgba(255,255,255,0.12);
+          background:
+            radial-gradient(
+              circle at 90% 10%,
+              rgba(140,106,255,0.13),
+              transparent 35%
+            ),
+            rgba(255,255,255,0.035);
+          display: flex;
+          align-items: center;
+          gap: 22px;
+          transition: 0.35s;
+        }
+
+        .businessCard:hover {
+          background:
+            radial-gradient(
+              circle at 90% 10%,
+              rgba(140,106,255,0.23),
+              transparent 40%
+            ),
+            rgba(255,255,255,0.06);
+          border-color: rgba(145,110,255,0.45);
+        }
+
+        .businessIcon {
+          width: 70px;
+          height: 70px;
+          border-radius: 20px;
+          background: #fff;
+          color: #000;
+          display: grid;
+          place-items: center;
+          flex-shrink: 0;
+        }
+
+        .businessIcon svg {
+          width: 38px;
+          height: 38px;
+        }
+
+        .businessInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+        }
+
+        .businessInfo span {
+          font-size: 8px;
+          letter-spacing: 3px;
+          color: rgba(255,255,255,0.35);
+        }
+
+        .businessInfo strong {
+          font-size: 25px;
+          letter-spacing: -0.5px;
+        }
+
+        .businessInfo small {
+          font-size: 8px;
+          letter-spacing: 2px;
+          color: #8c6aff;
+        }
+
+        .businessArrow {
+          margin-left: auto;
+          font-size: 20px;
+          color: rgba(255,255,255,0.35);
+        }
+
+        .aboutGrid {
+          margin-top: 55px;
+          display: grid;
+          grid-template-columns: 1fr 0.7fr;
+          gap: 100px;
         }
 
         .aboutText {
@@ -936,6 +1082,87 @@ export default function Home() {
         }
 
         .aboutText .muted {
+          color: rgba(255,255,255,0.3);
+        }
+
+        .contributors {
+          margin-top: 100px;
+        }
+
+        .contributorsTitle span {
+          font-size: 8px;
+          letter-spacing: 3px;
+          color: rgba(255,255,255,0.3);
+        }
+
+        .contributorsTitle h3 {
+          margin: 12px 0 30px;
+          font-size: 28px;
+          letter-spacing: 2px;
+        }
+
+        .contributorsGrid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+        }
+
+        .personCard {
+          position: relative;
+          padding: 30px;
+          min-height: 260px;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 22px;
+          background: rgba(255,255,255,0.035);
+          overflow: hidden;
+          transition: 0.3s;
+        }
+
+        .personCard:hover {
+          transform: translateY(-5px);
+          border-color: rgba(145,110,255,0.4);
+        }
+
+        .personNumber {
+          position: absolute;
+          top: 20px;
+          right: 25px;
+          font-size: 9px;
+          letter-spacing: 2px;
+          color: rgba(255,255,255,0.25);
+        }
+
+        .personAvatar {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          background:
+            radial-gradient(
+              circle at 30% 30%,
+              #9473ff,
+              #282039
+            );
+          font-size: 25px;
+          font-weight: 900;
+          margin-bottom: 25px;
+        }
+
+        .personCard > span {
+          font-size: 8px;
+          letter-spacing: 3px;
+          color: #8c6aff;
+        }
+
+        .personCard h4 {
+          font-size: 30px;
+          margin: 8px 0;
+        }
+
+        .personCard p {
+          font-size: 8px;
+          letter-spacing: 2px;
           color: rgba(255,255,255,0.3);
         }
 
@@ -975,7 +1202,6 @@ export default function Home() {
         }
 
         .socialCard:hover {
-          transform: translateY(-6px);
           background: rgba(255,255,255,0.07);
           border-color: rgba(145,110,255,0.45);
         }
@@ -986,32 +1212,18 @@ export default function Home() {
           border-radius: 15px;
           display: grid;
           place-items: center;
-          transition: 0.3s;
         }
 
         .socialLogo.tiktok {
           background: #000;
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.12),
-            0 0 25px rgba(37,244,238,0.12);
         }
 
         .socialLogo.instagram {
           background: #fff;
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.15),
-            0 0 25px rgba(225,48,108,0.12);
         }
 
         .socialLogo.snapchat {
           background: #fffc00;
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.15),
-            0 0 25px rgba(255,252,0,0.15);
-        }
-
-        .socialLogo svg {
-          display: block;
         }
 
         .socialDetails {
@@ -1033,142 +1245,6 @@ export default function Home() {
         .socialArrow {
           margin-left: auto;
           color: rgba(255,255,255,0.35);
-        }
-
-        .vinted {
-          max-width: 1100px;
-          padding: 80px 55px;
-          border: 1px solid rgba(255,255,255,0.1);
-          border-radius: 30px;
-          background:
-            radial-gradient(
-              circle at 70% 20%,
-              rgba(130,90,255,0.17),
-              transparent 35%
-            ),
-            rgba(255,255,255,0.025);
-          overflow: hidden;
-        }
-
-        .vintedGrid {
-          margin-top: 50px;
-          display: grid;
-          grid-template-columns: 1fr 300px;
-          gap: 80px;
-          align-items: center;
-        }
-
-        .vintedLogoBox {
-          width: 55px;
-          height: 55px;
-          border-radius: 16px;
-          background: #fff;
-          color: #111;
-          display: grid;
-          place-items: center;
-          margin-bottom: 30px;
-        }
-
-        .vintedMain h2 {
-          font-size: clamp(45px, 6vw, 75px);
-        }
-
-        .vintedMain p {
-          max-width: 480px;
-          color: rgba(255,255,255,0.42);
-          line-height: 1.7;
-          font-size: 14px;
-          margin: 25px 0;
-        }
-
-        .vintedButton {
-          background: #fff;
-          color: #080808;
-          padding: 17px 22px;
-          border-radius: 100px;
-        }
-
-        .vintedButtonLogo {
-          display: flex;
-          align-items: center;
-        }
-
-        .vintedButtonLogo svg {
-          width: 20px;
-          height: 20px;
-        }
-
-        .profileCard {
-          min-height: 330px;
-          border: 1px solid rgba(255,255,255,0.12);
-          border-radius: 25px;
-          padding: 22px;
-          text-align: center;
-          background: linear-gradient(
-            145deg,
-            #191b22,
-            #0b0c10
-          );
-          transform: rotate(3deg);
-          box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-        }
-
-        .profileHeader {
-          display: flex;
-          justify-content: space-between;
-          font-size: 8px;
-          letter-spacing: 3px;
-          color: rgba(255,255,255,0.4);
-        }
-
-        .profileAvatar {
-          width: 85px;
-          height: 85px;
-          border-radius: 50%;
-          margin: 35px auto 18px;
-          display: grid;
-          place-items: center;
-          background:
-            radial-gradient(
-              circle at 30% 30%,
-              #9473ff,
-              #282039
-            );
-          font-size: 27px;
-          font-weight: 900;
-        }
-
-        .profileCard h3 {
-          margin: 0;
-          font-size: 21px;
-        }
-
-        .profileCard > p {
-          font-size: 8px;
-          letter-spacing: 2px;
-          color: rgba(255,255,255,0.35);
-        }
-
-        .profileStats {
-          display: flex;
-          justify-content: space-around;
-          margin-top: 35px;
-        }
-
-        .profileStats div {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-
-        .profileStats strong {
-          font-size: 16px;
-        }
-
-        .profileStats span {
-          font-size: 7px;
-          color: rgba(255,255,255,0.3);
-          letter-spacing: 2px;
         }
 
         .contact {
@@ -1274,16 +1350,29 @@ export default function Home() {
             display: none;
           }
 
+          .business,
           .about,
           .socials,
-          .vinted,
           .contact {
             padding: 90px 18px;
           }
 
-          .aboutGrid,
-          .vintedGrid {
+          .businessTop {
+            display: block;
+          }
+
+          .businessTop p {
+            margin-top: 25px;
+          }
+
+          .businessGrid,
+          .contributorsGrid,
+          .socialGrid,
+          .aboutGrid {
             grid-template-columns: 1fr;
+          }
+
+          .aboutGrid {
             gap: 45px;
           }
 
@@ -1295,18 +1384,22 @@ export default function Home() {
             margin-top: 25px;
           }
 
-          .socialGrid {
-            grid-template-columns: 1fr;
+          .businessCard {
+            min-height: 165px;
+            padding: 22px;
           }
 
-          .vinted {
-            margin: 20px 18px;
-            padding: 45px 25px;
+          .businessIcon {
+            width: 58px;
+            height: 58px;
           }
 
-          .profileCard {
-            max-width: 300px;
-            margin: auto;
+          .businessInfo strong {
+            font-size: 20px;
+          }
+
+          .personCard {
+            min-height: 230px;
           }
 
           footer {
