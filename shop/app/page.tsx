@@ -1,37 +1,55 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 const TikTokIcon = () => (
   <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-    <path d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z"/>
+    <path d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z" />
   </svg>
 );
 
 const InstagramIcon = () => (
-  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2"/>
-    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2"/>
-    <circle cx="17.5" cy="6.5" r="1" />
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+    <rect
+      x="3"
+      y="3"
+      width="18"
+      height="18"
+      rx="5"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="4"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
   </svg>
 );
 
 const SnapchatIcon = () => (
   <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-    <path d="M12 3c-3.1 0-5 2.2-5 5.2v2.1c0 .8-.3 1.3-1.1 1.7l-1.4.6c-.4.2-.5.7-.1 1 .7.6 1.6.9 2.5 1 .3 1.2 1 2.1 2.1 2.6-.1.6-.5 1.1-1.1 1.3-.3.1-.3.6 0 .7.9.4 1.9.1 2.6-.3.7.5 1.5.8 2.5.8s1.8-.3 2.5-.8c.7.4 1.7.7 2.6.3.3-.1.3-.6 0-.7-.6-.2-1-.7-1.1-1.3 1.1-.5 1.8-1.4 2.1-2.6.9-.1 1.8-.4 2.5-1 .4-.3.3-.8-.1-1l-1.4-.6c-.8-.4-1.1-.9-1.1-1.7V8.2C17 5.2 15.1 3 12 3z"/>
+    <path d="M12 3c-3.1 0-5 2.2-5 5.2v2.1c0 .8-.3 1.3-1.1 1.7l-1.4.6c-.4.2-.5.7-.1 1 .7.6 1.6.9 2.5 1 .3 1.2 1 2.1 2.1 2.6-.1.6-.5 1.1-1.1 1.3-.3.1-.3.6 0 .7.9.4 1.9.1 2.6-.3.7.5 1.5.8 2.5.8s1.8-.3 2.5-.8c.7.4 1.7.7 2.6.3.3-.1.3-.6 0-.7-.6-.2-1-.7-1.1-1.3 1.1-.5 1.8-1.4 2.1-2.6.9-.1 1.8-.4 2.5-1 .4-.3.3-.8-.1-1l-1.4-.6c-.8-.4-1.1-.9-1.1-1.7V8.2C17 5.2 15.1 3 12 3z" />
   </svg>
 );
 
 const VintedIcon = () => (
   <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-    <path d="M4 5h4l4 9 4-9h4l-6.2 14h-3.6L4 5z"/>
+    <path d="M4 5h4l4 9 4-9h4l-6.2 14h-3.6L4 5z" />
   </svg>
 );
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
+
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -40,55 +58,57 @@ export default function Home() {
       type: "TikTok",
       username: "@youyu21bansky",
       url: "https://www.tiktok.com/@youyu21bansky",
-      icon: <TikTokIcon />
+      icon: <TikTokIcon />,
     },
     {
       type: "TikTok",
       username: "@adam4go",
       url: "https://www.tiktok.com/@adam4go",
-      icon: <TikTokIcon />
+      icon: <TikTokIcon />,
     },
     {
       type: "Instagram",
       username: "@youssef.ddf",
       url: "https://www.instagram.com/youssef.ddf/",
-      icon: <InstagramIcon />
+      icon: <InstagramIcon />,
     },
     {
       type: "Instagram",
       username: "@adam_marox77",
       url: "https://www.instagram.com/adam_marox77/",
-      icon: <InstagramIcon />
+      icon: <InstagramIcon />,
     },
     {
       type: "Snapchat",
       username: "21cent",
       url: "https://snapchat.com/t/5fd6xHYP",
-      icon: <SnapchatIcon />
+      icon: <SnapchatIcon />,
     },
     {
       type: "Snapchat",
       username: "Adamgango",
       url: "https://snapchat.com/t/vAWV7kT1",
-      icon: <SnapchatIcon />
+      icon: <SnapchatIcon />,
+    },
+    {
+      type: "Vinted",
+      username: "21restocks",
+      url: "https://www.vinted.de/member/3178578094-21restocks",
+      icon: <VintedIcon />,
     },
   ];
 
   return (
     <main className="site">
-      {/* Animated background */}
       <div className="ambient ambientOne" />
       <div className="ambient ambientTwo" />
       <div className="ambient ambientThree" />
 
       <div className="noise" />
 
-      {/* NAVBAR */}
       <header className="navbar">
         <a href="#" className="brand">
-          <div className="brandMark">
-            21
-          </div>
+          <div className="brandMark">21</div>
 
           <div className="brandText">
             <strong>21</strong>
@@ -109,7 +129,6 @@ export default function Home() {
         </a>
       </header>
 
-      {/* HERO */}
       <section id="home" className="hero">
         <div
           className="heroGlow"
@@ -175,7 +194,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT */}
       <section id="about" className="about">
         <div className="sectionLabel">01 / ABOUT US</div>
 
@@ -207,7 +225,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOCIALS */}
       <section id="socials" className="socials">
         <div className="sectionTop">
           <div>
@@ -236,12 +253,7 @@ export default function Home() {
               key={index}
             >
               <div className="socialLogo">
-                <img
-  src={social.logo}
-  alt={social.type}
-  width="32"
-  height="32"
-/>
+                {social.icon}
               </div>
 
               <div className="socialDetails">
@@ -255,7 +267,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VINTED */}
       <section id="vinted" className="vinted">
         <div className="vintedOrb" />
 
@@ -264,7 +275,7 @@ export default function Home() {
         <div className="vintedGrid">
           <div className="vintedMain">
             <div className="vintedLogoBox">
-              <span>V</span>
+              <VintedIcon />
             </div>
 
             <h2>
@@ -284,7 +295,9 @@ export default function Home() {
               rel="noopener noreferrer"
               className="vintedButton"
             >
-              <span className="vintedButtonLogo">V</span>
+              <span className="vintedButtonLogo">
+                <VintedIcon />
+              </span>
               OPEN VINTED
               <span>↗</span>
             </a>
@@ -296,13 +309,11 @@ export default function Home() {
               <span>VINTED</span>
             </div>
 
-            <div className="profileAvatar">
-              21
-            </div>
+            <div className="profileAvatar">21</div>
 
             <h3>21restocks</h3>
 
-            <p>RESSELLING / STREETWEAR</p>
+            <p>RESELLING / STREETWEAR</p>
 
             <div className="profileStats">
               <div>
@@ -324,7 +335,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
       <section id="contact" className="contact">
         <div className="sectionLabel">04 / CONTACT</div>
 
@@ -350,7 +360,6 @@ export default function Home() {
         </a>
       </section>
 
-      {/* FOOTER */}
       <footer>
         <div className="footerBrand">
           <div className="footerMark">21</div>
@@ -392,10 +401,7 @@ export default function Home() {
             #08090d;
           color: #fff;
           overflow: hidden;
-          font-family:
-            Arial,
-            Helvetica,
-            sans-serif;
+          font-family: Arial, Helvetica, sans-serif;
           position: relative;
         }
 
@@ -405,13 +411,12 @@ export default function Home() {
           pointer-events: none;
           z-index: 20;
           opacity: 0.035;
-          background-image:
-            repeating-linear-gradient(
-              0deg,
-              transparent,
-              transparent 2px,
-              #fff 3px
-            );
+          background-image: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            #fff 3px
+          );
         }
 
         .ambient {
@@ -461,7 +466,7 @@ export default function Home() {
           z-index: 10;
           max-width: 1250px;
           margin: auto;
-          padding: 28px 28px;
+          padding: 28px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -808,6 +813,11 @@ export default function Home() {
           font-size: 25px;
         }
 
+        .socialLogo svg {
+          width: 30px;
+          height: 30px;
+        }
+
         .socialDetails {
           display: flex;
           flex-direction: column;
@@ -860,9 +870,12 @@ export default function Home() {
           color: #111;
           display: grid;
           place-items: center;
-          font-size: 28px;
-          font-weight: 900;
           margin-bottom: 30px;
+        }
+
+        .vintedLogoBox svg {
+          width: 30px;
+          height: 30px;
         }
 
         .vintedMain h2 {
@@ -885,8 +898,13 @@ export default function Home() {
         }
 
         .vintedButtonLogo {
-          font-size: 17px;
-          font-weight: 900;
+          display: flex;
+          align-items: center;
+        }
+
+        .vintedButtonLogo svg {
+          width: 20px;
+          height: 20px;
         }
 
         .profileCard {
@@ -1113,8 +1131,7 @@ export default function Home() {
             gap: 8px;
           }
         }
-      `}
-      </style>
+      `}</style>
     </main>
   );
 }
