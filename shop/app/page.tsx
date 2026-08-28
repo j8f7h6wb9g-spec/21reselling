@@ -7,19 +7,30 @@ import { useEffect, useState } from "react";
 ========================= */
 
 const TikTokIcon = () => (
-  <svg viewBox="0 0 24 24" width="32" height="32">
+  <svg
+    viewBox="0 0 24 24"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Cyan shadow */}
     <path
       fill="#25F4EE"
-      d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z"
+      d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
+      transform="translate(-1 1)"
     />
+
+    {/* Pink shadow */}
     <path
       fill="#FE2C55"
-      transform="translate(-1,1)"
-      d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z"
+      d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
+      transform="translate(1 -1)"
     />
+
+    {/* Main TikTok shape */}
     <path
       fill="#000"
-      d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z"
+      d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
     />
   </svg>
 );
@@ -153,9 +164,7 @@ export default function Home() {
 
       <div className="noise" />
 
-      {/* =========================
-          NAVBAR
-      ========================= */}
+      {/* NAVBAR */}
 
       <header className="navbar">
 
@@ -186,9 +195,7 @@ export default function Home() {
 
       </header>
 
-      {/* =========================
-          HERO
-      ========================= */}
+      {/* HERO */}
 
       <section id="home" className="hero">
 
@@ -267,9 +274,7 @@ export default function Home() {
 
       </section>
 
-      {/* =========================
-          ABOUT
-      ========================= */}
+      {/* ABOUT */}
 
       <section id="about" className="about">
 
@@ -310,9 +315,7 @@ export default function Home() {
 
       </section>
 
-      {/* =========================
-          SOCIALS
-      ========================= */}
+      {/* SOCIALS */}
 
       <section id="socials" className="socials">
 
@@ -379,9 +382,7 @@ export default function Home() {
 
       </section>
 
-      {/* =========================
-          VINTED
-      ========================= */}
+      {/* VINTED */}
 
       <section id="vinted" className="vinted">
 
@@ -445,7 +446,7 @@ export default function Home() {
             </h3>
 
             <p>
-              RESSELLING / STREETWEAR
+              RESELLING / STREETWEAR
             </p>
 
             <div className="profileStats">
@@ -473,9 +474,7 @@ export default function Home() {
 
       </section>
 
-      {/* =========================
-          CONTACT
-      ========================= */}
+      {/* CONTACT */}
 
       <section id="contact" className="contact">
 
@@ -510,9 +509,7 @@ export default function Home() {
 
       </section>
 
-      {/* =========================
-          FOOTER
-      ========================= */}
+      {/* FOOTER */}
 
       <footer>
 
@@ -548,9 +545,7 @@ export default function Home() {
 
       </footer>
 
-      {/* =========================
-          CSS
-      ========================= */}
+      {/* CSS */}
 
       <style jsx>{`
 
