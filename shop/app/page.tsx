@@ -1,7 +1,31 @@
 "use client";
 
 import { useEffect, useState } from "react";
+const TikTokIcon = () => (
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+    <path d="M19.6 7.2a5.6 5.6 0 0 1-3.4-1.1v7.2a5.7 5.7 0 1 1-4.9-5.6v3a2.8 2.8 0 1 0 1.9 2.6V2h3a5.7 5.7 0 0 0 3.4 3.4v1.8z"/>
+  </svg>
+);
 
+const InstagramIcon = () => (
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="17.5" cy="6.5" r="1" />
+  </svg>
+);
+
+const SnapchatIcon = () => (
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+    <path d="M12 3c-3.1 0-5 2.2-5 5.2v2.1c0 .8-.3 1.3-1.1 1.7l-1.4.6c-.4.2-.5.7-.1 1 .7.6 1.6.9 2.5 1 .3 1.2 1 2.1 2.1 2.6-.1.6-.5 1.1-1.1 1.3-.3.1-.3.6 0 .7.9.4 1.9.1 2.6-.3.7.5 1.5.8 2.5.8s1.8-.3 2.5-.8c.7.4 1.7.7 2.6.3.3-.1.3-.6 0-.7-.6-.2-1-.7-1.1-1.3 1.1-.5 1.8-1.4 2.1-2.6.9-.1 1.8-.4 2.5-1 .4-.3.3-.8-.1-1l-1.4-.6c-.8-.4-1.1-.9-1.1-1.7V8.2C17 5.2 15.1 3 12 3z"/>
+  </svg>
+);
+
+const VintedIcon = () => (
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+    <path d="M4 5h4l4 9 4-9h4l-6.2 14h-3.6L4 5z"/>
+  </svg>
+);
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
 
@@ -16,37 +40,37 @@ export default function Home() {
       type: "TikTok",
       username: "@youyu21bansky",
       url: "https://www.tiktok.com/@youyu21bansky",
-      logo: "/tiktok.png",
+      icon: <TikTokIcon />
     },
     {
       type: "TikTok",
       username: "@adam4go",
       url: "https://www.tiktok.com/@adam4go",
-      logo: "𝕿",
+      icon: <TikTokIcon />
     },
     {
       type: "Instagram",
       username: "@youssef.ddf",
       url: "https://www.instagram.com/youssef.ddf/",
-      logo: "◎",
+      icon: <InstagramIcon />
     },
     {
       type: "Instagram",
       username: "@adam_marox77",
       url: "https://www.instagram.com/adam_marox77/",
-      logo: "◎",
+      icon: <InstagramIcon />
     },
     {
       type: "Snapchat",
       username: "21cent",
       url: "https://snapchat.com/t/5fd6xHYP",
-      logo: "👻",
+      icon: <SnapchatIcon />
     },
     {
       type: "Snapchat",
       username: "Adamgango",
       url: "https://snapchat.com/t/vAWV7kT1",
-      logo: "👻",
+      icon: <SnapchatIcon />
     },
   ];
 
