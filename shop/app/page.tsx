@@ -13,21 +13,16 @@ const TikTokIcon = () => (
     height="32"
     xmlns="http://www.w3.org/2000/svg"
   >
-    {/* Cyan shadow */}
     <path
       fill="#25F4EE"
       d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
       transform="translate(-1 1)"
     />
-
-    {/* Pink shadow */}
     <path
       fill="#FE2C55"
       d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
       transform="translate(1 -1)"
     />
-
-    {/* Main TikTok shape */}
     <path
       fill="#000"
       d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
@@ -67,12 +62,7 @@ const InstagramIcon = () => (
       strokeWidth="2"
     />
 
-    <circle
-      cx="17.3"
-      cy="6.7"
-      r="1.3"
-      fill="#E1306C"
-    />
+    <circle cx="17.3" cy="6.7" r="1.3" fill="#E1306C" />
   </svg>
 );
 
@@ -112,7 +102,32 @@ export default function Home() {
   }, []);
 
   /* =========================
-     SOCIAL ACCOUNTS
+     BUSINESS ACCOUNTS
+  ========================= */
+
+  const businessAccounts = [
+    {
+      name: "21 STOCKS",
+      subtitle: "OFFICIAL BUSINESS ACCOUNT",
+      platform: "TikTok",
+      handle: "@21stocks",
+      url: "https://www.tiktok.com/@21stocks",
+      icon: <TikTokIcon />,
+      className: "businessTikTok",
+    },
+    {
+      name: "21restocks",
+      subtitle: "OFFICIAL VINTED SHOP",
+      platform: "Vinted",
+      handle: "21restocks",
+      url: "https://www.vinted.de/member/3178578094-21restocks",
+      icon: <VintedIcon />,
+      className: "businessVinted",
+    },
+  ];
+
+  /* =========================
+     PERSONAL ACCOUNTS
   ========================= */
 
   const socials = [
@@ -126,12 +141,6 @@ export default function Home() {
       type: "TikTok",
       username: "@adam4go",
       url: "https://www.tiktok.com/@adam4go",
-      icon: <TikTokIcon />,
-    },
-    {
-      type: "TikTok",
-      username: "@21stocks",
-      url: "https://www.tiktok.com/@21stocks",
       icon: <TikTokIcon />,
     },
     {
@@ -164,6 +173,7 @@ export default function Home() {
     <main className="site">
 
       {/* BACKGROUND */}
+
       <div className="ambient ambientOne" />
       <div className="ambient ambientTwo" />
       <div className="ambient ambientThree" />
@@ -189,14 +199,14 @@ export default function Home() {
 
         <nav>
           <a href="#home">HOME</a>
+          <a href="#business">BUSINESS</a>
           <a href="#about">ABOUT US</a>
           <a href="#socials">SOCIALS</a>
-          <a href="#vinted">VINTED</a>
           <a href="#contact">CONTACT</a>
         </nav>
 
-        <a href="#socials" className="navButton">
-          CONNECT
+        <a href="#business" className="navButton">
+          21 STOCKS
         </a>
 
       </header>
@@ -237,13 +247,13 @@ export default function Home() {
 
           <div className="heroActions">
 
-            <a href="#socials" className="primaryButton">
-              OUR SOCIALS
+            <a href="#business" className="primaryButton">
+              21 STOCKS
               <span>↗</span>
             </a>
 
-            <a href="#vinted" className="secondaryButton">
-              VINTED
+            <a href="#socials" className="secondaryButton">
+              OUR SOCIALS
               <span>↗</span>
             </a>
 
@@ -280,29 +290,182 @@ export default function Home() {
 
       </section>
 
+      {/* =========================
+          BUSINESS ACCOUNTS
+      ========================= */}
+
+      <section id="business" className="business">
+
+        <div className="sectionLabel">
+          01 / OFFICIAL BUSINESS
+        </div>
+
+        <div className="businessHeading">
+
+          <h2>
+            THIS IS
+            <br />
+            <span>21 STOCKS.</span>
+          </h2>
+
+          <p>
+            Unser offizieller Business-Account und unser
+            offizieller Vinted-Shop – alles an einem Ort.
+          </p>
+
+        </div>
+
+        {/* POSTER */}
+
+        <div className="businessPoster">
+
+          <div className="posterNoise" />
+
+          <div className="posterTop">
+            <span>21 RESSELLING</span>
+            <span>EST. 2026</span>
+          </div>
+
+          <div className="posterCenter">
+
+            <div className="posterSmall">
+              OFFICIAL BUSINESS ACCOUNT
+            </div>
+
+            <h3>
+              21
+              <span>STOCKS</span>
+            </h3>
+
+            <div className="posterLine" />
+
+            <p>
+              STREETWEAR
+              <span>×</span>
+              RESELLING
+              <span>×</span>
+              VINTED
+            </p>
+
+          </div>
+
+          {/* Fake product collage */}
+
+          <div className="product productOne">
+            <div className="productShape hoodie">
+              HOODIE
+            </div>
+          </div>
+
+          <div className="product productTwo">
+            <div className="productShape sneaker">
+              SHOES
+            </div>
+          </div>
+
+          <div className="product productThree">
+            <div className="productShape cap">
+              CAP
+            </div>
+          </div>
+
+          <div className="product productFour">
+            <div className="productShape bag">
+              BAG
+            </div>
+          </div>
+
+          <div className="posterBottom">
+            <span>@21STOCKS</span>
+            <span>21RESTOCKS</span>
+          </div>
+
+        </div>
+
+        {/* BUSINESS CARDS */}
+
+        <div className="businessGrid">
+
+          {businessAccounts.map((account, index) => (
+
+            <a
+              key={index}
+              href={account.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`businessCard ${account.className}`}
+            >
+
+              <div className="businessCardTop">
+
+                <span>
+                  {account.subtitle}
+                </span>
+
+                <span>
+                  ↗
+                </span>
+
+              </div>
+
+              <div className="businessIcon">
+                {account.icon}
+              </div>
+
+              <div className="businessCardInfo">
+
+                <span>
+                  {account.platform}
+                </span>
+
+                <strong>
+                  {account.name}
+                </strong>
+
+                <p>
+                  {account.handle}
+                </p>
+
+              </div>
+
+              <div className="businessOpen">
+                OPEN ACCOUNT
+                <span>↗</span>
+              </div>
+
+            </a>
+
+          ))}
+
+        </div>
+
+      </section>
+
       {/* ABOUT */}
 
       <section id="about" className="about">
 
         <div className="sectionLabel">
-          01 / ABOUT US
+          02 / ABOUT US
         </div>
 
         <div className="aboutGrid">
 
           <div>
+
             <h2>
               TWO MINDS.
               <br />
               <span>ONE VISION.</span>
             </h2>
+
           </div>
 
           <div className="aboutText">
 
             <p>
-              Wir sind <b>21 Reselling</b> – zwei Jungs mit einer
-              gemeinsamen Idee.
+              Wir sind <b>21 Reselling</b> – zwei Jungs mit
+              einer gemeinsamen Idee.
             </p>
 
             <p>
@@ -311,9 +474,107 @@ export default function Home() {
             </p>
 
             <p className="muted">
-              Keine komplizierte Plattform. Einfach unsere
-              Socials checken und auf Vinted vorbeischauen.
+              Unser Business läuft über 21 Stocks und unseren
+              Vinted-Shop 21restocks.
             </p>
+
+          </div>
+
+        </div>
+
+        {/* MITWIRKENDE */}
+
+        <div className="contributors">
+
+          <div className="contributorsTitle">
+
+            <div className="sectionLabel">
+              MITWIRKENDE
+            </div>
+
+            <h3>
+              THE PEOPLE
+              <br />
+              <span>BEHIND 21.</span>
+            </h3>
+
+          </div>
+
+          <div className="contributorsGrid">
+
+            <a
+              href="https://www.tiktok.com/@youyu21bansky"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="personCard"
+            >
+
+              <div className="personNumber">
+                01
+              </div>
+
+              <div className="personAvatar">
+                Y
+              </div>
+
+              <div className="personInfo">
+
+                <span>
+                  CO-FOUNDER
+                </span>
+
+                <strong>
+                  YOUSSEF
+                </strong>
+
+                <small>
+                  @youyu21bansky
+                </small>
+
+              </div>
+
+              <div className="personArrow">
+                ↗
+              </div>
+
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@adam4go"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="personCard"
+            >
+
+              <div className="personNumber">
+                02
+              </div>
+
+              <div className="personAvatar">
+                A
+              </div>
+
+              <div className="personInfo">
+
+                <span>
+                  CO-FOUNDER
+                </span>
+
+                <strong>
+                  ADAM
+                </strong>
+
+                <small>
+                  @adam4go
+                </small>
+
+              </div>
+
+              <div className="personArrow">
+                ↗
+              </div>
+
+            </a>
 
           </div>
 
@@ -330,7 +591,7 @@ export default function Home() {
           <div>
 
             <div className="sectionLabel">
-              02 / SOCIALS
+              03 / SOCIALS
             </div>
 
             <h2>
@@ -342,8 +603,8 @@ export default function Home() {
           </div>
 
           <p className="sectionIntro">
-            Folgt uns auf unseren Plattformen und bleibt bei
-            neuen Drops, Listings und Updates immer dabei.
+            Folgt uns auf unseren persönlichen Accounts und
+            bleibt bei neuen Drops, Content und Updates dabei.
           </p>
 
         </div>
@@ -395,7 +656,7 @@ export default function Home() {
         <div className="vintedOrb" />
 
         <div className="sectionLabel">
-          03 / MARKETPLACE
+          04 / MARKETPLACE
         </div>
 
         <div className="vintedGrid">
@@ -485,7 +746,7 @@ export default function Home() {
       <section id="contact" className="contact">
 
         <div className="sectionLabel">
-          04 / CONTACT
+          05 / CONTACT
         </div>
 
         <h2>
@@ -526,6 +787,7 @@ export default function Home() {
           </div>
 
           <div>
+
             <strong>
               21 RESELLING
             </strong>
@@ -533,6 +795,7 @@ export default function Home() {
             <span>
               2 MINDS. 1 PLAN.
             </span>
+
           </div>
 
         </div>
@@ -551,7 +814,9 @@ export default function Home() {
 
       </footer>
 
-      {/* CSS */}
+      {/* =========================
+          CSS
+      ========================= */}
 
       <style jsx>{`
 
@@ -645,6 +910,8 @@ export default function Home() {
 
         }
 
+        /* NAVBAR */
+
         .navbar {
           position: relative;
           z-index: 10;
@@ -722,6 +989,8 @@ export default function Home() {
           background: rgba(255,255,255,0.04);
           backdrop-filter: blur(15px);
         }
+
+        /* HERO */
 
         .hero {
           position: relative;
@@ -858,7 +1127,6 @@ export default function Home() {
         .sideNumber {
           font-size: 60px;
           font-weight: 900;
-          opacity: 0.9;
         }
 
         .sideLine {
@@ -893,8 +1161,11 @@ export default function Home() {
           background: rgba(255,255,255,0.3);
         }
 
+        /* SECTIONS */
+
         .about,
         .socials,
+        .business,
         .vinted,
         .contact {
           position: relative;
@@ -903,6 +1174,359 @@ export default function Home() {
           margin: auto;
           padding: 130px 28px;
         }
+
+        /* BUSINESS */
+
+        .businessHeading {
+          margin-top: 45px;
+          display: flex;
+          align-items: end;
+          justify-content: space-between;
+          gap: 60px;
+        }
+
+        .businessHeading h2 {
+          font-size: clamp(60px, 8vw, 105px);
+          line-height: 0.85;
+          letter-spacing: -6px;
+          margin: 0;
+        }
+
+        .businessHeading h2 span {
+          color: rgba(255,255,255,0.25);
+        }
+
+        .businessHeading p {
+          max-width: 330px;
+          color: rgba(255,255,255,0.4);
+          line-height: 1.7;
+          font-size: 13px;
+        }
+
+        /* POSTER */
+
+        .businessPoster {
+          position: relative;
+          margin-top: 60px;
+          min-height: 480px;
+          overflow: hidden;
+          border-radius: 28px;
+          border: 1px solid rgba(255,255,255,0.15);
+          background:
+            radial-gradient(
+              circle at 50% 50%,
+              rgba(130,95,255,0.3),
+              transparent 35%
+            ),
+            linear-gradient(
+              135deg,
+              #111217,
+              #090a0e 55%,
+              #171020
+            );
+          box-shadow:
+            0 40px 100px rgba(0,0,0,0.45);
+        }
+
+        .posterNoise {
+          position: absolute;
+          inset: 0;
+          opacity: 0.08;
+          background:
+            repeating-linear-gradient(
+              45deg,
+              transparent 0,
+              transparent 4px,
+              rgba(255,255,255,0.2) 5px
+            );
+        }
+
+        .posterTop,
+        .posterBottom {
+          position: absolute;
+          left: 30px;
+          right: 30px;
+          display: flex;
+          justify-content: space-between;
+          font-size: 8px;
+          letter-spacing: 4px;
+          color: rgba(255,255,255,0.5);
+        }
+
+        .posterTop {
+          top: 25px;
+        }
+
+        .posterBottom {
+          bottom: 25px;
+        }
+
+        .posterCenter {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          z-index: 3;
+        }
+
+        .posterSmall {
+          font-size: 9px;
+          letter-spacing: 5px;
+          color: rgba(255,255,255,0.5);
+          margin-bottom: 20px;
+        }
+
+        .posterCenter h3 {
+          margin: 0;
+          font-size: clamp(70px, 12vw, 145px);
+          line-height: 0.7;
+          font-weight: 900;
+          letter-spacing: -8px;
+          text-shadow:
+            0 0 50px rgba(139,100,255,0.4);
+        }
+
+        .posterCenter h3 span {
+          display: block;
+          font-size: 0.43em;
+          letter-spacing: 14px;
+          margin-top: 25px;
+          color: rgba(255,255,255,0.8);
+        }
+
+        .posterLine {
+          width: 150px;
+          height: 1px;
+          background: rgba(255,255,255,0.25);
+          margin: 35px 0 20px;
+        }
+
+        .posterCenter p {
+          display: flex;
+          gap: 15px;
+          align-items: center;
+          margin: 0;
+          font-size: 8px;
+          letter-spacing: 4px;
+          color: rgba(255,255,255,0.45);
+        }
+
+        .posterCenter p span {
+          color: #9272ff;
+        }
+
+        /* PRODUCTS */
+
+        .product {
+          position: absolute;
+          z-index: 2;
+          opacity: 0.7;
+          filter: drop-shadow(0 25px 25px rgba(0,0,0,0.55));
+        }
+
+        .productShape {
+          display: grid;
+          place-items: center;
+          font-size: 8px;
+          letter-spacing: 2px;
+          font-weight: 900;
+          color: rgba(255,255,255,0.5);
+          border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .productOne {
+          left: 7%;
+          top: 23%;
+          transform: rotate(-14deg);
+        }
+
+        .hoodie {
+          width: 145px;
+          height: 175px;
+          border-radius: 28px 28px 18px 18px;
+          background:
+            linear-gradient(
+              145deg,
+              #252630,
+              #101116
+            );
+          clip-path: polygon(
+            25% 0,
+            75% 0,
+            100% 25%,
+            82% 38%,
+            88% 100%,
+            12% 100%,
+            18% 38%,
+            0 25%
+          );
+        }
+
+        .productTwo {
+          right: 8%;
+          top: 17%;
+          transform: rotate(18deg);
+        }
+
+        .sneaker {
+          width: 155px;
+          height: 75px;
+          border-radius: 60% 50% 20% 20%;
+          background:
+            linear-gradient(
+              135deg,
+              #282a33,
+              #0b0c10
+            );
+          clip-path: polygon(
+            0 55%,
+            40% 38%,
+            55% 5%,
+            72% 20%,
+            100% 65%,
+            95% 85%,
+            5% 85%
+          );
+        }
+
+        .productThree {
+          left: 12%;
+          bottom: 13%;
+          transform: rotate(9deg);
+        }
+
+        .cap {
+          width: 125px;
+          height: 70px;
+          border-radius: 80px 80px 20px 20px;
+          background:
+            linear-gradient(
+              145deg,
+              #2b2935,
+              #111116
+            );
+        }
+
+        .productFour {
+          right: 12%;
+          bottom: 12%;
+          transform: rotate(-12deg);
+        }
+
+        .bag {
+          width: 110px;
+          height: 135px;
+          border-radius: 12px;
+          background:
+            linear-gradient(
+              145deg,
+              #242630,
+              #0b0c10
+            );
+        }
+
+        /* BUSINESS CARDS */
+
+        .businessGrid {
+          margin-top: 18px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+
+        .businessCard {
+          position: relative;
+          min-height: 290px;
+          padding: 25px;
+          border-radius: 22px;
+          border: 1px solid rgba(255,255,255,0.11);
+          background: rgba(255,255,255,0.035);
+          color: #fff;
+          text-decoration: none;
+          overflow: hidden;
+          transition: 0.35s;
+        }
+
+        .businessCard:hover {
+          transform: translateY(-8px);
+          border-color: rgba(255,255,255,0.3);
+        }
+
+        .businessTikTok:hover {
+          box-shadow: 0 30px 80px rgba(37,244,238,0.08);
+        }
+
+        .businessVinted:hover {
+          box-shadow: 0 30px 80px rgba(127,92,255,0.1);
+        }
+
+        .businessCardTop {
+          display: flex;
+          justify-content: space-between;
+          color: rgba(255,255,255,0.3);
+          font-size: 7px;
+          letter-spacing: 3px;
+        }
+
+        .businessIcon {
+          width: 62px;
+          height: 62px;
+          border-radius: 18px;
+          display: grid;
+          place-items: center;
+          margin-top: 35px;
+        }
+
+        .businessTikTok .businessIcon {
+          background: #000;
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.15),
+            0 0 35px rgba(37,244,238,0.1);
+        }
+
+        .businessVinted .businessIcon {
+          background: #fff;
+          color: #111;
+        }
+
+        .businessCardInfo {
+          display: flex;
+          flex-direction: column;
+          margin-top: 25px;
+        }
+
+        .businessCardInfo span {
+          font-size: 8px;
+          letter-spacing: 3px;
+          color: rgba(255,255,255,0.35);
+        }
+
+        .businessCardInfo strong {
+          font-size: 25px;
+          margin-top: 6px;
+        }
+
+        .businessCardInfo p {
+          margin: 6px 0 0;
+          color: rgba(255,255,255,0.4);
+          font-size: 12px;
+        }
+
+        .businessOpen {
+          position: absolute;
+          right: 25px;
+          bottom: 25px;
+          font-size: 8px;
+          letter-spacing: 2px;
+          color: rgba(255,255,255,0.4);
+          display: flex;
+          gap: 10px;
+        }
+
+        /* ABOUT */
 
         .aboutGrid {
           margin-top: 55px;
@@ -941,6 +1565,106 @@ export default function Home() {
         .aboutText .muted {
           color: rgba(255,255,255,0.3);
         }
+
+        /* CONTRIBUTORS */
+
+        .contributors {
+          margin-top: 110px;
+          padding-top: 50px;
+          border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .contributorsTitle h3 {
+          margin: 25px 0 0;
+          font-size: clamp(45px, 6vw, 75px);
+          line-height: 0.85;
+          letter-spacing: -4px;
+        }
+
+        .contributorsTitle h3 span {
+          color: rgba(255,255,255,0.25);
+        }
+
+        .contributorsGrid {
+          margin-top: 45px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+
+        .personCard {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          min-height: 150px;
+          padding: 20px;
+          color: #fff;
+          text-decoration: none;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 20px;
+          background: rgba(255,255,255,0.025);
+          transition: 0.3s;
+        }
+
+        .personCard:hover {
+          transform: translateY(-5px);
+          background: rgba(255,255,255,0.06);
+        }
+
+        .personNumber {
+          position: absolute;
+          right: 20px;
+          top: 17px;
+          color: rgba(255,255,255,0.2);
+          font-size: 9px;
+          letter-spacing: 2px;
+        }
+
+        .personAvatar {
+          width: 65px;
+          height: 65px;
+          flex-shrink: 0;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          background:
+            radial-gradient(
+              circle at 30% 30%,
+              #9578ff,
+              #252034
+            );
+          font-size: 22px;
+          font-weight: 900;
+        }
+
+        .personInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .personInfo span {
+          font-size: 7px;
+          letter-spacing: 3px;
+          color: rgba(255,255,255,0.35);
+        }
+
+        .personInfo strong {
+          font-size: 19px;
+        }
+
+        .personInfo small {
+          font-size: 10px;
+          color: rgba(255,255,255,0.4);
+        }
+
+        .personArrow {
+          margin-left: auto;
+          color: rgba(255,255,255,0.3);
+        }
+
+        /* SOCIALS */
 
         .sectionTop {
           display: flex;
@@ -989,32 +1713,18 @@ export default function Home() {
           border-radius: 15px;
           display: grid;
           place-items: center;
-          transition: 0.3s;
         }
 
         .socialLogo.tiktok {
           background: #000;
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.12),
-            0 0 25px rgba(37,244,238,0.12);
         }
 
         .socialLogo.instagram {
           background: #fff;
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.15),
-            0 0 25px rgba(225,48,108,0.12);
         }
 
         .socialLogo.snapchat {
           background: #fffc00;
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.15),
-            0 0 25px rgba(255,252,0,0.15);
-        }
-
-        .socialLogo svg {
-          display: block;
         }
 
         .socialDetails {
@@ -1037,6 +1747,8 @@ export default function Home() {
           margin-left: auto;
           color: rgba(255,255,255,0.35);
         }
+
+        /* VINTED */
 
         .vinted {
           max-width: 1100px;
@@ -1174,6 +1886,8 @@ export default function Home() {
           letter-spacing: 2px;
         }
 
+        /* CONTACT */
+
         .contact {
           text-align: center;
           padding-bottom: 160px;
@@ -1196,6 +1910,8 @@ export default function Home() {
           padding: 17px 24px;
           border-radius: 100px;
         }
+
+        /* FOOTER */
 
         footer {
           max-width: 1100px;
@@ -1245,6 +1961,8 @@ export default function Home() {
           gap: 25px;
         }
 
+        /* MOBILE */
+
         @media (max-width: 800px) {
 
           .navbar {
@@ -1279,15 +1997,61 @@ export default function Home() {
 
           .about,
           .socials,
+          .business,
           .vinted,
           .contact {
             padding: 90px 18px;
+          }
+
+          .businessHeading {
+            display: block;
+          }
+
+          .businessHeading p {
+            margin-top: 25px;
+          }
+
+          .businessPoster {
+            min-height: 430px;
+          }
+
+          .posterCenter h3 {
+            font-size: 85px;
+          }
+
+          .posterCenter p {
+            gap: 7px;
+            letter-spacing: 2px;
+          }
+
+          .productOne {
+            left: -35px;
+          }
+
+          .productTwo {
+            right: -35px;
+          }
+
+          .productThree {
+            left: -20px;
+          }
+
+          .productFour {
+            right: -20px;
+          }
+
+          .businessGrid {
+            grid-template-columns: 1fr;
           }
 
           .aboutGrid,
           .vintedGrid {
             grid-template-columns: 1fr;
             gap: 45px;
+          }
+
+          .contributorsGrid {
+            grid-template-columns: 1fr;
           }
 
           .sectionTop {
