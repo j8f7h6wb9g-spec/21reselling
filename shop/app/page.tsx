@@ -496,7 +496,7 @@ export default function Home() {
         </p>
 
         <a
-          href="mailto:21reselling.contact@gmail.com"
+          href="mailto:21stocks.business@gmail.com"
           className="emailButton"
         >
 
