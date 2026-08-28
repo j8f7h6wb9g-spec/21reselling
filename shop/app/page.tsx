@@ -13,21 +13,18 @@ const TikTokIcon = () => (
     height="32"
     xmlns="http://www.w3.org/2000/svg"
   >
-    {/* Cyan shadow */}
     <path
       fill="#25F4EE"
       d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
       transform="translate(-1 1)"
     />
 
-    {/* Pink shadow */}
     <path
       fill="#FE2C55"
       d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
       transform="translate(1 -1)"
     />
 
-    {/* Main TikTok shape */}
     <path
       fill="#000"
       d="M16.5 3.5h-3.1v10.2a2.7 2.7 0 1 1-2.1-2.6V8a6 6 0 1 0 5.3 5.9V8.4c1 .8 2.2 1.2 3.5 1.3V6.5c-2-.2-3.3-1.2-3.6-3z"
@@ -129,6 +126,12 @@ export default function Home() {
       icon: <TikTokIcon />,
     },
     {
+      type: "TikTok",
+      username: "@21stocks",
+      url: "https://www.tiktok.com/@21stocks",
+      icon: <TikTokIcon />,
+    },
+    {
       type: "Instagram",
       username: "@youssef.ddf",
       url: "https://www.instagram.com/youssef.ddf/",
@@ -184,13 +187,13 @@ export default function Home() {
         <nav>
           <a href="#home">HOME</a>
           <a href="#about">ABOUT US</a>
-          <a href="#socials">SOCIALS</a>
           <a href="#vinted">VINTED</a>
+          <a href="#socials">SOCIALS</a>
           <a href="#contact">CONTACT</a>
         </nav>
 
-        <a href="#socials" className="navButton">
-          CONNECT
+        <a href="#vinted" className="navButton">
+          SHOP
         </a>
 
       </header>
@@ -231,13 +234,13 @@ export default function Home() {
 
           <div className="heroActions">
 
-            <a href="#socials" className="primaryButton">
-              OUR SOCIALS
+            <a href="#vinted" className="primaryButton">
+              SHOP ON VINTED
               <span>↗</span>
             </a>
 
-            <a href="#vinted" className="secondaryButton">
-              VINTED
+            <a href="#socials" className="secondaryButton">
+              OUR SOCIALS
               <span>↗</span>
             </a>
 
@@ -315,73 +318,6 @@ export default function Home() {
 
       </section>
 
-      {/* SOCIALS */}
-
-      <section id="socials" className="socials">
-
-        <div className="sectionTop">
-
-          <div>
-
-            <div className="sectionLabel">
-              02 / SOCIALS
-            </div>
-
-            <h2>
-              FIND
-              <br />
-              <span>US ONLINE.</span>
-            </h2>
-
-          </div>
-
-          <p className="sectionIntro">
-            Folgt uns auf unseren Plattformen und bleibt bei
-            neuen Drops, Listings und Updates immer dabei.
-          </p>
-
-        </div>
-
-        <div className="socialGrid">
-
-          {socials.map((social, index) => (
-
-            <a
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="socialCard"
-              key={index}
-            >
-
-              <div className={`socialLogo ${social.type.toLowerCase()}`}>
-                {social.icon}
-              </div>
-
-              <div className="socialDetails">
-
-                <span>
-                  {social.type}
-                </span>
-
-                <strong>
-                  {social.username}
-                </strong>
-
-              </div>
-
-              <div className="socialArrow">
-                ↗
-              </div>
-
-            </a>
-
-          ))}
-
-        </div>
-
-      </section>
-
       {/* VINTED */}
 
       <section id="vinted" className="vinted">
@@ -389,7 +325,7 @@ export default function Home() {
         <div className="vintedOrb" />
 
         <div className="sectionLabel">
-          03 / MARKETPLACE
+          02 / MARKETPLACE
         </div>
 
         <div className="vintedGrid">
@@ -469,6 +405,73 @@ export default function Home() {
             </div>
 
           </div>
+
+        </div>
+
+      </section>
+
+      {/* SOCIALS */}
+
+      <section id="socials" className="socials">
+
+        <div className="sectionTop">
+
+          <div>
+
+            <div className="sectionLabel">
+              03 / SOCIALS
+            </div>
+
+            <h2>
+              FIND
+              <br />
+              <span>US ONLINE.</span>
+            </h2>
+
+          </div>
+
+          <p className="sectionIntro">
+            Folgt uns auf unseren Plattformen und bleibt bei
+            neuen Drops, Listings und Updates immer dabei.
+          </p>
+
+        </div>
+
+        <div className="socialGrid">
+
+          {socials.map((social, index) => (
+
+            <a
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="socialCard"
+              key={index}
+            >
+
+              <div className={`socialLogo ${social.type.toLowerCase()}`}>
+                {social.icon}
+              </div>
+
+              <div className="socialDetails">
+
+                <span>
+                  {social.type}
+                </span>
+
+                <strong>
+                  {social.username}
+                </strong>
+
+              </div>
+
+              <div className="socialArrow">
+                ↗
+              </div>
+
+            </a>
+
+          ))}
 
         </div>
 
