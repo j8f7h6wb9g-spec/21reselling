@@ -86,6 +86,20 @@ const VintedIcon = () => (
   </svg>
 );
 
+const TwitchIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill="#9146FF"
+      d="M4 3h16v11l-5 5h-4l-3 3v-3H4V3zm2 2v12h3v2l2-2h4l3-3V5H6zm3 2h2v5H9V7zm5 0h2v5h-2V7z"
+    />
+  </svg>
+);
+
 /* =========================
    MAIN PAGE
 ========================= */
@@ -116,13 +130,22 @@ export default function Home() {
       className: "businessTikTok",
     },
     {
-      name: "21restocks",
+      name: "21stockss",
       subtitle: "OFFICIAL VINTED SHOP",
       platform: "Vinted",
-      handle: "21restocks",
-      url: "https://www.vinted.de/member/3178578094-21restocks",
+      handle: "21stockss",
+      url: "https://www.vinted.de/member/3190862414-21stockss",
       icon: <VintedIcon />,
       className: "businessVinted",
+    },
+    {
+      name: "21centalive",
+      subtitle: "OFFICIAL TWITCH ACCOUNT",
+      platform: "Twitch",
+      handle: "@21centalive",
+      url: "https://m.twitch.tv/21centalive/home?tt_content=channel&tt_medium=mobile_web_share",
+      icon: <TwitchIcon />,
+      className: "businessTwitch",
     },
   ];
 
@@ -166,6 +189,12 @@ export default function Home() {
       username: "Adamgango",
       url: "https://snapchat.com/t/vAWV7kT1",
       icon: <SnapchatIcon />,
+    },
+    {
+      type: "Twitch",
+      username: "@21centalive",
+      url: "https://m.twitch.tv/21centalive/home?tt_content=channel&tt_medium=mobile_web_share",
+      icon: <TwitchIcon />,
     },
   ];
 
@@ -309,8 +338,8 @@ export default function Home() {
           </h2>
 
           <p>
-            Unser offizieller Business-Account und unser
-            offizieller Vinted-Shop – alles an einem Ort.
+            Unser offizieller Business-Account, unser
+            Vinted-Shop und unser Twitch-Kanal – alles an einem Ort.
           </p>
 
         </div>
@@ -322,14 +351,14 @@ export default function Home() {
           <div className="posterNoise" />
 
           <div className="posterTop">
-            <span>21 RESSELLING</span>
+            <span>21 RESELLING</span>
             <span>EST. 2026</span>
           </div>
 
           <div className="posterCenter">
 
             <div className="posterSmall">
-              OFFICIAL BUSINESS ACCOUNT
+              OFFICIAL BUSINESS ACCOUNTS
             </div>
 
             <h3>
@@ -345,6 +374,8 @@ export default function Home() {
               RESELLING
               <span>×</span>
               VINTED
+              <span>×</span>
+              TWITCH
             </p>
 
           </div>
@@ -377,7 +408,7 @@ export default function Home() {
 
           <div className="posterBottom">
             <span>@21STOCKS</span>
-            <span>21RESTOCKS</span>
+            <span>21STOCKSS</span>
           </div>
 
         </div>
@@ -475,7 +506,7 @@ export default function Home() {
 
             <p className="muted">
               Unser Business läuft über 21 Stocks und unseren
-              Vinted-Shop 21restocks.
+              Vinted-Shop 21stockss.
             </p>
 
           </div>
@@ -679,7 +710,7 @@ export default function Home() {
             </p>
 
             <a
-              href="https://www.vinted.de/member/3178578094-21restocks"
+              href="https://www.vinted.de/member/3190862414-21stockss"
               target="_blank"
               rel="noopener noreferrer"
               className="vintedButton"
@@ -709,7 +740,7 @@ export default function Home() {
             </div>
 
             <h3>
-              21restocks
+              21stockss
             </h3>
 
             <p>
@@ -1463,6 +1494,10 @@ export default function Home() {
           box-shadow: 0 30px 80px rgba(127,92,255,0.1);
         }
 
+        .businessTwitch:hover {
+          box-shadow: 0 30px 80px rgba(145,70,255,0.16);
+        }
+
         .businessCardTop {
           display: flex;
           justify-content: space-between;
@@ -1490,6 +1525,14 @@ export default function Home() {
         .businessVinted .businessIcon {
           background: #fff;
           color: #111;
+        }
+
+        .businessTwitch .businessIcon {
+          background: #fff;
+          color: #9146ff;
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,0.15),
+            0 0 35px rgba(145,70,255,0.12);
         }
 
         .businessCardInfo {
@@ -1725,6 +1768,10 @@ export default function Home() {
 
         .socialLogo.snapchat {
           background: #fffc00;
+        }
+
+        .socialLogo.twitch {
+          background: #fff;
         }
 
         .socialDetails {
@@ -2022,6 +2069,8 @@ export default function Home() {
           .posterCenter p {
             gap: 7px;
             letter-spacing: 2px;
+            flex-wrap: wrap;
+            justify-content: center;
           }
 
           .productOne {
