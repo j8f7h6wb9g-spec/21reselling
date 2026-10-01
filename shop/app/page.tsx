@@ -100,6 +100,20 @@ const TwitchIcon = () => (
   </svg>
 );
 
+const DiscordIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill="#5865F2"
+      d="M19.5 5.1A16.5 16.5 0 0 0 15.4 4l-.5 1a15.2 15.2 0 0 0-5.8 0l-.5-1a16.5 16.5 0 0 0-4.1 1.1C1.9 8.7 1.2 12.2 1.5 15.7a16.7 16.7 0 0 0 5.1 2.6l1.2-1.7c-.7-.3-1.3-.7-1.9-1.1l.5-.4c3.7 1.7 7.7 1.7 11.4 0l.5.4c-.6.4-1.2.8-1.9 1.1l1.2 1.7a16.7 16.7 0 0 0 5.1-2.6c.4-4-.7-7.4-3.2-10.6zM8.5 14.2c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2zm7 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2z"
+    />
+  </svg>
+);
+
 /* =========================
    MAIN PAGE
 ========================= */
@@ -195,6 +209,12 @@ export default function Home() {
       username: "@21centalive",
       url: "https://m.twitch.tv/21centalive/home?tt_content=channel&tt_medium=mobile_web_share",
       icon: <TwitchIcon />,
+    },
+    {
+      type: "Discord",
+      username: "21 RESELLING",
+      url: "https://discord.gg/hkP7GjXZd",
+      icon: <DiscordIcon />,
     },
   ];
 
@@ -319,9 +339,7 @@ export default function Home() {
 
       </section>
 
-      {/* =========================
-          BUSINESS ACCOUNTS
-      ========================= */}
+      {/* BUSINESS ACCOUNTS */}
 
       <section id="business" className="business">
 
@@ -379,8 +397,6 @@ export default function Home() {
             </p>
 
           </div>
-
-          {/* Fake product collage */}
 
           <div className="product productOne">
             <div className="productShape hoodie">
@@ -1771,6 +1787,10 @@ export default function Home() {
         }
 
         .socialLogo.twitch {
+          background: #fff;
+        }
+
+        .socialLogo.discord {
           background: #fff;
         }
 
