@@ -212,7 +212,7 @@ export default function Home() {
     },
     {
       type: "Discord",
-      username: "21 RESELLING",
+      username: "21cent's Discord",
       url: "https://discord.gg/hkP7GjXZd",
       icon: <DiscordIcon />,
     },
